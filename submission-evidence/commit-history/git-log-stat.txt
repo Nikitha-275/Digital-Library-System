@@ -1,6 +1,241 @@
-Generated 2026-10-31T14:03:53Z at local devops-dev HEAD 0cc2f42. The final evidence commit that adds these files is made after generation, so it is not listed.
+commit 7f2fc5fec15cc8bba385afeb0a1fe8a355456cde
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 14:27:45 2026 +0000
 
-$ git log --stat --all
+    docs: backend integration docs and real test/build evidence
+    
+    Backend 52 tests (93% coverage), live contract 17 passed, full frontend
+    suite 221 passed with live backend, real-browser login/browse check.
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ DEVOPS.md                                          |   28 +-
+ submission-evidence/README.md                      |   30 +-
+ .../automated-tests/backend-tests-pending.md       |   16 -
+ .../automated-tests/backend/coverage.xml           |  657 +++++++
+ .../automated-tests/backend/junit.xml              |    1 +
+ .../automated-tests/backend/pytest-run.log         |   55 +
+ .../automated-tests/coverage/coverage-summary.json |   59 +-
+ .../automated-tests/coverage/index.html            |   52 +-
+ .../coverage/lcov-report/index.html                |   52 +-
+ .../coverage/lcov-report/src/App.jsx.html          |    2 +-
+ .../coverage/lcov-report/src/api/auth.js.html      |    2 +-
+ .../coverage/lcov-report/src/api/books.js.html     |    2 +-
+ .../lcov-report/src/api/categories.js.html         |    2 +-
+ .../coverage/lcov-report/src/api/client.js.html    |   20 +-
+ .../coverage/lcov-report/src/api/config.js.html    |    2 +-
+ .../coverage/lcov-report/src/api/downloads.js.html |    2 +-
+ .../coverage/lcov-report/src/api/favorites.js.html |    2 +-
+ .../coverage/lcov-report/src/api/index.html        |   43 +-
+ .../lcov-report/src/api/liveAdapter.js.html        | 1207 +++++++++++++
+ .../coverage/lcov-report/src/api/mockData.js.html  |    2 +-
+ .../coverage/lcov-report/src/api/requests.js.html  |    2 +-
+ .../coverage/lcov-report/src/api/users.js.html     |    2 +-
+ .../lcov-report/src/components/AdminRoute.jsx.html |    2 +-
+ .../lcov-report/src/components/BookCard.jsx.html   |    2 +-
+ .../lcov-report/src/components/Navbar.jsx.html     |    2 +-
+ .../src/components/ProtectedRoute.jsx.html         |    2 +-
+ .../coverage/lcov-report/src/components/index.html |    2 +-
+ .../lcov-report/src/context/AuthContext.jsx.html   |    2 +-
+ .../coverage/lcov-report/src/context/index.html    |    2 +-
+ .../coverage/lcov-report/src/hooks/index.html      |    2 +-
+ .../lcov-report/src/hooks/useDebounce.js.html      |    2 +-
+ .../coverage/lcov-report/src/index.html            |    2 +-
+ .../lcov-report/src/pages/AdminDashboard.jsx.html  |   42 +-
+ .../lcov-report/src/pages/BookDetails.jsx.html     |    2 +-
+ .../coverage/lcov-report/src/pages/Browse.jsx.html |   34 +-
+ .../lcov-report/src/pages/Downloads.jsx.html       |    2 +-
+ .../lcov-report/src/pages/Favorites.jsx.html       |   68 +-
+ .../coverage/lcov-report/src/pages/Home.jsx.html   |    2 +-
+ .../coverage/lcov-report/src/pages/Login.jsx.html  |    2 +-
+ .../lcov-report/src/pages/NotFound.jsx.html        |    2 +-
+ .../lcov-report/src/pages/Register.jsx.html        |    2 +-
+ .../lcov-report/src/pages/RequestBook.jsx.html     |    2 +-
+ .../coverage/lcov-report/src/pages/index.html      |   28 +-
+ .../lcov-report/src/utils/downloadFile.js.html     |    2 +-
+ .../coverage/lcov-report/src/utils/index.html      |    2 +-
+ .../automated-tests/coverage/lcov.info             | 1794 +++++++++++++-------
+ .../automated-tests/coverage/src/App.jsx.html      |    2 +-
+ .../automated-tests/coverage/src/api/auth.js.html  |    2 +-
+ .../automated-tests/coverage/src/api/books.js.html |    2 +-
+ .../coverage/src/api/categories.js.html            |    2 +-
+ .../coverage/src/api/client.js.html                |   20 +-
+ .../coverage/src/api/config.js.html                |    2 +-
+ .../coverage/src/api/downloads.js.html             |    2 +-
+ .../coverage/src/api/favorites.js.html             |    2 +-
+ .../automated-tests/coverage/src/api/index.html    |   43 +-
+ .../coverage/src/api/liveAdapter.js.html           | 1207 +++++++++++++
+ .../coverage/src/api/mockData.js.html              |    2 +-
+ .../coverage/src/api/requests.js.html              |    2 +-
+ .../automated-tests/coverage/src/api/users.js.html |    2 +-
+ .../coverage/src/components/AdminRoute.jsx.html    |    2 +-
+ .../coverage/src/components/BookCard.jsx.html      |    2 +-
+ .../coverage/src/components/Navbar.jsx.html        |    2 +-
+ .../src/components/ProtectedRoute.jsx.html         |    2 +-
+ .../coverage/src/components/index.html             |    2 +-
+ .../coverage/src/context/AuthContext.jsx.html      |    2 +-
+ .../coverage/src/context/index.html                |    2 +-
+ .../automated-tests/coverage/src/hooks/index.html  |    2 +-
+ .../coverage/src/hooks/useDebounce.js.html         |    2 +-
+ .../automated-tests/coverage/src/index.html        |    2 +-
+ .../coverage/src/pages/AdminDashboard.jsx.html     |   42 +-
+ .../coverage/src/pages/BookDetails.jsx.html        |    2 +-
+ .../coverage/src/pages/Browse.jsx.html             |   34 +-
+ .../coverage/src/pages/Downloads.jsx.html          |    2 +-
+ .../coverage/src/pages/Favorites.jsx.html          |   68 +-
+ .../coverage/src/pages/Home.jsx.html               |    2 +-
+ .../coverage/src/pages/Login.jsx.html              |    2 +-
+ .../coverage/src/pages/NotFound.jsx.html           |    2 +-
+ .../coverage/src/pages/Register.jsx.html           |    2 +-
+ .../coverage/src/pages/RequestBook.jsx.html        |    2 +-
+ .../automated-tests/coverage/src/pages/index.html  |   28 +-
+ .../coverage/src/utils/downloadFile.js.html        |    2 +-
+ .../automated-tests/coverage/src/utils/index.html  |    2 +-
+ submission-evidence/automated-tests/junit.xml      |  491 +++---
+ .../automated-tests/live-contract-run.log          |   18 +
+ submission-evidence/automated-tests/results.json   |    2 +-
+ submission-evidence/automated-tests/summary.md     |   11 +-
+ .../automated-tests/test-run-live-node22.log       |  148 ++
+ .../automated-tests/tested-commit.txt              |    2 +-
+ .../build-verification/build-live-mode-node22.log  |   13 +
+ .../deployment/deployment-status.md                |   10 +-
+ submission-evidence/deployment/live-browse.png     |  Bin 0 -> 284741 bytes
+ .../documentation/integration-checklist.md         |  119 +-
+ 92 files changed, 5253 insertions(+), 1305 deletions(-)
+
+commit 85bd152048edf67de1a14c0aa7a60ac70b897303
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 14:27:45 2026 +0000
+
+    ci: add full-stack integration job (real backend + live contract tests)
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ .github/workflows/ci.yml | 69 +++++++++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 65 insertions(+), 4 deletions(-)
+
+commit 68accf3dfe49dc1f1ef68bba37b286a1e60b6194
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 14:25:15 2026 +0000
+
+    feat(frontend): live API adapter translating the UI contract to the FastAPI backend
+    
+    Used only when VITE_USE_MOCKS=false. Maps paths, field names, roles, paging,
+    sorting, category name->id, favorites toggle, FastAPI detail->message.
+    Vite proxy strips /api; admin Add Book now uploads the PDF as multipart.
+    Contract tests now run the same assertions through the adapter against the
+    live backend (17 pass); 18 adapter unit tests added.
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ frontend-dev/src/__tests__/api.contract.test.js |  37 ++-
+ frontend-dev/src/__tests__/apiClient.test.js    |   7 +-
+ frontend-dev/src/__tests__/liveAdapter.test.js  | 174 +++++++++++
+ frontend-dev/src/api/client.js                  |   4 +-
+ frontend-dev/src/api/liveAdapter.js             | 374 ++++++++++++++++++++++++
+ frontend-dev/src/pages/AdminDashboard.jsx       |  10 +-
+ frontend-dev/vite.config.js                     |   2 +
+ 7 files changed, 591 insertions(+), 17 deletions(-)
+
+commit f7d0043f9d23814e5b3f1554d6362fb9f0f9b9ea
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 14:16:38 2026 +0000
+
+    fix(backend): add missing email-validator dependency
+    
+    schemas.py uses pydantic EmailStr, which requires email-validator. It was not
+    listed in requirements.txt, so a clean install fails at import time and all
+    tests error during collection (found by running the suite in a clean venv on
+    Python 3.11). With the dependency added: 52 passed.
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ requirements.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 8899af4122e85856af115fc65b4d276d32b8fffa
+Merge: 27dcd9a ad0cbf2
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 14:15:12 2026 +0000
+
+    chore(devops): merge main (backend) into devops-dev
+    
+    Brings in the backend pushed to main (FastAPI app, tests, seed script).
+    README conflict resolved by keeping the backend README and re-adding the
+    DevOps link. No backend files modified.
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+commit ad0cbf22eb916780c814caadf7756b13d3e4096e
+Merge: 6712536 00e3ea2
+Author: Pooja-Vaikrish <poojavaikrish@gmail.com>
+Date:   Sat Oct 31 19:40:58 2026 +0530
+
+    Resolve README conflict - keep local version
+
+commit 6712536ad01b011513beca02e6ccaf80fbc288ab
+Author: Pooja-Vaikrish <poojavaikrish@gmail.com>
+Date:   Sat Oct 31 19:37:33 2026 +0530
+
+    Initial commit
+
+ .env.example              |  14 ++
+ .gitignore                |  26 ++++
+ README.md                 | 157 +++++++++++++++++++++
+ app/__init__.py           |   3 +
+ app/auth.py               | 144 +++++++++++++++++++
+ app/config.py             |  38 +++++
+ app/database.py           |  77 +++++++++++
+ app/main.py               |  82 +++++++++++
+ app/models.py             | 163 ++++++++++++++++++++++
+ app/routers/__init__.py   |   3 +
+ app/routers/admin.py      | 133 ++++++++++++++++++
+ app/routers/auth.py       |  85 ++++++++++++
+ app/routers/books.py      | 313 +++++++++++++++++++++++++++++++++++++++++
+ app/routers/categories.py |  82 +++++++++++
+ app/routers/favorites.py  |  64 +++++++++
+ app/routers/me.py         |  76 ++++++++++
+ app/routers/requests.py   |  60 ++++++++
+ app/schemas.py            | 190 +++++++++++++++++++++++++
+ pyproject.toml            |  22 +++
+ requirements.txt          |  14 ++
+ seed.py                   | 279 +++++++++++++++++++++++++++++++++++++
+ tests/__init__.py         |   3 +
+ tests/conftest.py         | 130 ++++++++++++++++++
+ tests/test_admin.py       |  87 ++++++++++++
+ tests/test_auth.py        | 143 +++++++++++++++++++
+ tests/test_books.py       | 344 ++++++++++++++++++++++++++++++++++++++++++++++
+ tests/test_categories.py  | 110 +++++++++++++++
+ tests/test_favorites.py   | 126 +++++++++++++++++
+ tests/test_health.py      |  15 ++
+ tests/test_requests.py    | 133 ++++++++++++++++++
+ uploads/.gitkeep          |   1 +
+ 31 files changed, 3117 insertions(+)
+
+commit 27dcd9a4ae4cbb0e1ec6b29054383d6f3f754b49
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 14:04:05 2026 +0000
+
+    docs(evidence): add git commit history reports
+    
+    git log graph/stat/full, branch tips with hashes, authors; records that
+    devops-dev is not yet pushed and that developer commit 28b5d85 is untouched.
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ submission-evidence/commit-history/git-authors.txt |   8 +
+ .../commit-history/git-branches.txt                |  20 ++
+ .../commit-history/git-log-full.txt                | 194 +++++++++++
+ .../commit-history/git-log-graph.txt               |  18 ++
+ .../commit-history/git-log-stat.txt                | 359 +++++++++++++++++++++
+ 5 files changed, 599 insertions(+)
+
 commit 0cc2f42fc12b114f882c8469f423c5ac2e244de2
 Author: Jishnu <jishnukrishnamurrthy@gmail.com>
 Date:   Sat Oct 31 14:03:46 2026 +0000
