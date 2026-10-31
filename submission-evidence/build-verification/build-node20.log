@@ -1,0 +1,33 @@
+Clean-room run | date: 2026-10-31T14:01:51Z | node v20.20.2 | npm 10.9.9 | commit 5ade9416c5bdb36afa6f8b4e9bb6364e327b613c (devops-dev) | fresh git clone, nothing reused from the working folder
+
+$ npm run build
+
+> elibrary-frontend@1.0.0 build
+> vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 119 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.92 kB │ gzip:  0.54 kB
+dist/assets/index-c6iO2FGv.css   14.59 kB │ gzip:  3.55 kB
+dist/assets/index-DUBf4CZC.js   293.84 kB │ gzip: 91.48 kB
+✓ built in 1.80s
+exit: 0
+
+$ ls -l dist dist/assets
+dist:
+total 8
+drwxr-xr-x 2 root root 4096 Oct 31 14:01 assets
+-rw-r--r-- 1 root root  921 Oct 31 14:01 index.html
+
+dist/assets:
+total 304
+-rw-r--r-- 1 root root 293976 Oct 31 14:01 index-DUBf4CZC.js
+-rw-r--r-- 1 root root  14585 Oct 31 14:01 index-c6iO2FGv.css
+
+$ sha256sum dist/index.html dist/assets/*
+7d7a93e650e319e008eb1b5fbeb646ff9cf4427dce1a4c1941922e9003c8f8d2  dist/index.html
+3d1e8bde0e9543abc24579fe39674d4f20e7115ac4cd70ed2b91ebb0a3a9883a  dist/assets/index-DUBf4CZC.js
+e66e9fe7a86112af6b6188d402e2e40b8a38ac430ef1093aa550b94b0479a4ee  dist/assets/index-c6iO2FGv.css

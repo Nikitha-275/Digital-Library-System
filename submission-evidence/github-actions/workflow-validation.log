@@ -1,0 +1,21 @@
+Workflow validation | 2026-10-31T14:03:03Z | commit 5ade941
+
+VALID YAML: .github/workflows/ci.yml
+  triggers: {"push": {"branches": ["main", "frontend-dev", "backend-dev", "devops-dev"]}, "pull_request": {"branches": ["main", "frontend-dev", "backend-dev", "devops-dev"]}, "workflow_dispatch": null}
+  jobs: ['detect', 'frontend', 'backend-python', 'backend-node', 'backend-java', 'summary']
+  all 'needs' references resolve
+VALID YAML: .github/workflows/deploy-frontend.yml
+  triggers: {"workflow_dispatch": {"inputs": {"target": {"description": "Deployment target", "type": "choice", "options": ["preview", "production"], "default": "preview"}}}}
+  jobs: ['deploy']
+  all 'needs' references resolve
+VALID JSON: frontend-dev/vercel.json
+
+Backend auto-detection logic (the 'detect' job script) run against 4 layouts:
+[1] no backend code (current state of the branch)
+  -> frontend=true backend_dir= backend_type=none 
+[2] backend-dev/requirements.txt (Python)
+  -> frontend=true backend_dir=backend-dev backend_type=python 
+[3] backend/package.json (Node)
+  -> frontend=true backend_dir=backend backend_type=node 
+[4] backend/pom.xml (Java)
+  -> frontend=true backend_dir=backend backend_type=java 
