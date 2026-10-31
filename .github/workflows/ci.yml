@@ -1,0 +1,263 @@
+name: CI
+
+on:
+  push:
+    branches: [main, frontend-dev, backend-dev, devops-dev]
+  pull_request:
+    branches: [main, frontend-dev, backend-dev, devops-dev]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Detect which parts of the project exist on this branch.
+  # Backend jobs switch on automatically when backend code is present.
+  # ---------------------------------------------------------------------------
+  detect:
+    name: Detect project parts
+    runs-on: ubuntu-latest
+    outputs:
+      frontend: ${{ steps.detect.outputs.frontend }}
+      backend_dir: ${{ steps.detect.outputs.backend_dir }}
+      backend_type: ${{ steps.detect.outputs.backend_type }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Detect frontend and backend
+        id: detect
+        shell: bash
+        run: |
+          frontend=false
+          [ -f frontend-dev/package.json ] && frontend=true
+
+          backend_dir=""
+          backend_type="none"
+
+          # Look for a backend folder with a recognised manifest.
+          for d in $(find . -maxdepth 1 -mindepth 1 -type d \( -iname 'backend*' -o -iname 'server' -o -iname 'api' \) | sed 's|^\./||' | sort); do
+            if [ -f "$d/requirements.txt" ] || [ -f "$d/pyproject.toml" ]; then
+              backend_dir="$d"; backend_type="python"; break
+            elif [ -f "$d/package.json" ]; then
+              backend_dir="$d"; backend_type="node"; break
+            elif [ -f "$d/pom.xml" ]; then
+              backend_dir="$d"; backend_type="java"; break
+            fi
+          done
+
+          # Fallback: Python backend at repository root.
+          if [ -z "$backend_dir" ] && { [ -f requirements.txt ] || [ -f pyproject.toml ]; }; then
+            backend_dir="."; backend_type="python"
+          fi
+
+          echo "frontend=$frontend" >> "$GITHUB_OUTPUT"
+          echo "backend_dir=$backend_dir" >> "$GITHUB_OUTPUT"
+          echo "backend_type=$backend_type" >> "$GITHUB_OUTPUT"
+
+          {
+            echo "### Detected project parts"
+            echo "- Frontend (frontend-dev/): **$frontend**"
+            echo "- Backend: **$backend_type** (dir: \`${backend_dir:-none}\`)"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$backend_type" = "none" ]; then
+            echo "::notice title=Backend not found::No backend code on this branch. Backend checks are SKIPPED (not passed)."
+          fi
+
+  # ---------------------------------------------------------------------------
+  # Frontend: install, unit tests with coverage, production build
+  # ---------------------------------------------------------------------------
+  frontend:
+    name: Frontend (install, test, build)
+    needs: detect
+    if: needs.detect.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend-dev
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend-dev/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Unit tests with coverage
+        run: npm run test:ci
+
+      - name: Test summary
+        if: always()
+        run: node scripts/summarize-tests.mjs >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload test and coverage reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-test-reports
+          path: |
+            frontend-dev/test-results
+            frontend-dev/coverage
+          if-no-files-found: warn
+
+      - name: Production build
+        run: npm run build
+
+      - name: Upload build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend-dev/dist
+          if-no-files-found: error
+
+  # ---------------------------------------------------------------------------
+  # Backend jobs: run only when matching backend code exists.
+  # ---------------------------------------------------------------------------
+  backend-python:
+    name: Backend (Python)
+    needs: detect
+    if: needs.detect.outputs.backend_type == 'python'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ needs.detect.outputs.backend_dir }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f pyproject.toml ] && [ ! -f requirements.txt ]; then pip install .; fi
+          pip install pytest pytest-cov
+
+      - name: Compile check
+        run: python -m compileall -q .
+
+      - name: Unit, API and integration tests
+        shell: bash
+        run: |
+          mkdir -p test-results
+          set +e
+          python -m pytest -ra --junitxml=test-results/junit.xml --cov=. --cov-report=xml:test-results/coverage.xml --cov-report=term
+          code=$?
+          set -e
+          if [ "$code" -eq 5 ]; then
+            echo "::warning title=No backend tests::pytest collected zero tests. Backend tests are MISSING, not passed."
+            echo "### Backend tests: NONE FOUND (not a pass)" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          exit "$code"
+
+      - name: Upload backend reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-test-reports
+          path: ${{ needs.detect.outputs.backend_dir }}/test-results
+          if-no-files-found: warn
+
+  backend-node:
+    name: Backend (Node)
+    needs: detect
+    if: needs.detect.outputs.backend_type == 'node'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ needs.detect.outputs.backend_dir }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Tests
+        shell: bash
+        run: |
+          if node -e "process.exit(require('./package.json').scripts?.test ? 0 : 1)"; then
+            npm test
+          else
+            echo "::warning title=No backend tests::package.json has no test script. Backend tests are MISSING, not passed."
+            echo "### Backend tests: NONE FOUND (not a pass)" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  backend-java:
+    name: Backend (Java/Maven)
+    needs: detect
+    if: needs.detect.outputs.backend_type == 'java'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ needs.detect.outputs.backend_dir }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: maven
+
+      - name: Build and test
+        run: mvn -B verify
+
+  # ---------------------------------------------------------------------------
+  # Final gate: clear status table, fails if any job that ran failed.
+  # ---------------------------------------------------------------------------
+  summary:
+    name: CI summary
+    needs: [detect, frontend, backend-python, backend-node, backend-java]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report results
+        shell: bash
+        env:
+          DETECT: ${{ needs.detect.result }}
+          FRONTEND: ${{ needs.frontend.result }}
+          BACKEND_PY: ${{ needs.backend-python.result }}
+          BACKEND_NODE: ${{ needs.backend-node.result }}
+          BACKEND_JAVA: ${{ needs.backend-java.result }}
+          BACKEND_TYPE: ${{ needs.detect.outputs.backend_type }}
+        run: |
+          {
+            echo "### CI results"
+            echo "| Check | Result |"
+            echo "|---|---|"
+            echo "| Detect | $DETECT |"
+            echo "| Frontend (test + build) | $FRONTEND |"
+            if [ "$BACKEND_TYPE" = "none" ]; then
+              echo "| Backend | SKIPPED - no backend code on this branch (not a pass) |"
+            else
+              echo "| Backend python | $BACKEND_PY |"
+              echo "| Backend node | $BACKEND_NODE |"
+              echo "| Backend java | $BACKEND_JAVA |"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          fail=0
+          for r in "$DETECT" "$FRONTEND" "$BACKEND_PY" "$BACKEND_NODE" "$BACKEND_JAVA"; do
+            if [ "$r" = "failure" ] || [ "$r" = "cancelled" ]; then fail=1; fi
+          done
+          if [ "$fail" -eq 1 ]; then
+            echo "::error::One or more CI jobs failed. See the table above."
+            exit 1
+          fi
