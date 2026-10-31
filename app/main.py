@@ -1,3 +1,5 @@
+import logging
+import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request, status
@@ -16,6 +18,15 @@ async def lifespan(app: FastAPI):
     Initializes database tables and performs startup retry (PRD Section 5 & 8).
     """
     init_db()
+    # Optional: load demo data on startup (e.g. free hosting without shell access).
+    # Off by default. seed_database() only adds what is missing, never overwrites.
+    if os.getenv("AUTO_SEED", "").strip().lower() in ("1", "true", "yes"):
+        try:
+            from seed import seed_database
+
+            seed_database()
+        except Exception:  # never stop the server because seeding failed
+            logging.getLogger(__name__).exception("AUTO_SEED failed; continuing without demo data")
     yield
 
 

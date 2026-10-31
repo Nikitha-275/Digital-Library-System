@@ -116,7 +116,7 @@ Output goes to `frontend-dev/dist/`. Verified on Node 20 from a clean clone; see
 
 ### Backend (PENDING)
 
-Start command: `uvicorn app.main:app --host 0.0.0.0 --port 8000`; health check `GET /health`. Environment: `DATABASE_URL` (or `DB_*` for MySQL), `JWT_SECRET`, `UPLOAD_DIR`. Hosting is **PENDING** (needs an account - see `submission-evidence/deployment/deployment-status.md`). Frontend/backend mapping: `submission-evidence/documentation/integration-checklist.md`.
+Start command: `uvicorn app.main:app --host 0.0.0.0 --port 8000`; health check `GET /health`. Environment: `DATABASE_URL` (or `DB_*` for MySQL), `JWT_SECRET`, `UPLOAD_DIR`. Optional `AUTO_SEED=true` loads the demo data on startup (for hosts without shell access); it only adds missing rows, never overwrites, and is off by default. Hosting is **PENDING** (needs an account - see `submission-evidence/deployment/deployment-status.md`). Frontend/backend mapping: `submission-evidence/documentation/integration-checklist.md`.
 
 ## 9. Environment variables
 
