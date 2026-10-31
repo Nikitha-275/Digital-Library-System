@@ -1,0 +1,18 @@
+Generated 2026-10-31T14:03:53Z at local devops-dev HEAD 0cc2f42. The final evidence commit that adds these files is made after generation, so it is not listed.
+
+$ git log --oneline --all --graph --decorate
+* 0cc2f42 (HEAD -> devops-dev) docs(evidence): add test, build, workflow and deployment evidence
+* 9dece5b docs: add DevOps guide and frontend/backend integration checklist
+* 5ade941 ci: add manual Vercel deployment workflow for the frontend
+* 34c93c7 ci: add GitHub Actions CI with frontend test/build and auto-enabled backend jobs
+* 18a6644 test(api): add contract tests for mock API and live backend
+* 0f3b040 test(frontend): integration tests rendering the full app against the mock API
+* 9d509c2 test(frontend): component tests for auth, route guards, forms and navigation
+* acb6983 test(frontend): unit tests for mock API, axios client, hooks and utilities
+* 4cf8358 build(test): add Vitest, Testing Library and coverage tooling
+* fde12b4 feat(devops): add Vercel config and env-driven API settings
+*   ebc5ddc chore(devops): bring frontend-dev into devops-dev for test and CI setup
+|\  
+| * 28b5d85 (origin/frontend-dev) feat(frontend): complete phases 1-3 with mock API, routes, and admin dashboard
+|/  
+* 00e3ea2 (origin/main, origin/devops-dev, origin/backend-dev, origin/HEAD, main) Initial commit

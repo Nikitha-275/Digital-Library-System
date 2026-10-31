@@ -1,0 +1,194 @@
+Generated 2026-10-31T14:03:53Z at local devops-dev HEAD 0cc2f42. The final evidence commit that adds these files is made after generation, so it is not listed.
+
+$ git log --all --format=fuller --date=iso
+commit 0cc2f42fc12b114f882c8469f423c5ac2e244de2
+Author:     Jishnu <jishnukrishnamurrthy@gmail.com>
+AuthorDate: 2026-10-31 14:03:46 +0000
+Commit:     Jishnu <jishnukrishnamurrthy@gmail.com>
+CommitDate: 2026-10-31 14:03:46 +0000
+
+    docs(evidence): add test, build, workflow and deployment evidence
+    
+    - clean-room Node 20 run: npm ci, tests with coverage, build (real logs)
+    - JUnit XML, JSON report, coverage HTML/LCOV/summary, per-test inventory
+    - mutation check, workflow validation log, deployment status
+    - backend and deployment items marked PENDING/BLOCKED with reasons
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+commit 9dece5b7669382923c22a82f6ee5ec05b2aa3113
+Author:     Jishnu <jishnukrishnamurrthy@gmail.com>
+AuthorDate: 2026-10-31 14:03:46 +0000
+Commit:     Jishnu <jishnukrishnamurrthy@gmail.com>
+CommitDate: 2026-10-31 14:03:46 +0000
+
+    docs: add DevOps guide and frontend/backend integration checklist
+    
+    - DEVOPS.md: branches, commit and PR workflow, testing, CI/CD, build,
+      deployment, environment variables
+    - integration checklist: endpoints and payloads the frontend expects, risks
+      found in the code, CORS options, steps for when the backend arrives
+    - README links to the DevOps guide
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+commit 5ade9416c5bdb36afa6f8b4e9bb6364e327b613c
+Author:     Jishnu <jishnukrishnamurrthy@gmail.com>
+AuthorDate: 2026-10-31 13:58:56 +0000
+Commit:     Jishnu <jishnukrishnamurrthy@gmail.com>
+CommitDate: 2026-10-31 13:58:56 +0000
+
+    ci: add manual Vercel deployment workflow for the frontend
+    
+    - workflow_dispatch only, preview or production target
+    - runs tests before deploying, fails clearly if secrets are missing
+    - requires VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID repository secrets
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+commit 34c93c719a3e38d37f72bfbaef32d8083edf1cde
+Author:     Jishnu <jishnukrishnamurrthy@gmail.com>
+AuthorDate: 2026-10-31 13:58:56 +0000
+Commit:     Jishnu <jishnukrishnamurrthy@gmail.com>
+CommitDate: 2026-10-31 13:58:56 +0000
+
+    ci: add GitHub Actions CI with frontend test/build and auto-enabled backend jobs
+    
+    - triggers on push and pull_request for main, frontend-dev, backend-dev, devops-dev
+    - frontend: npm ci, tests with coverage, job summary, production build, artifacts
+    - detects Python/Node/Java backend code and runs backend jobs automatically
+    - reports SKIPPED (never passed) when no backend code exists
+    - final gate fails the run if any job that ran failed
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+commit 18a6644efa1a4f0eb61cbe2110d72b2e7b380dd1
+Author:     Jishnu <jishnukrishnamurrthy@gmail.com>
+AuthorDate: 2026-10-31 13:58:21 +0000
+Commit:     Jishnu <jishnukrishnamurrthy@gmail.com>
+CommitDate: 2026-10-31 13:58:21 +0000
+
+    test(api): add contract tests for mock API and live backend
+    
+    Same assertions run against the built-in mock API and, when API_TEST_URL
+    is set, against the real backend. Skipped (not passed) otherwise.
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+commit 0f3b0400d98a13000d0549450980b4c9a4e9071f
+Author:     Jishnu <jishnukrishnamurrthy@gmail.com>
+AuthorDate: 2026-10-31 13:58:21 +0000
+Commit:     Jishnu <jishnukrishnamurrthy@gmail.com>
+CommitDate: 2026-10-31 13:58:21 +0000
+
+    test(frontend): integration tests rendering the full app against the mock API
+    
+    - Browse search, filter, sort, error and retry
+    - routing, 404 and access control for anonymous, user and admin
+    - login journeys, favorites, downloads, book details
+    - admin dashboard: books, categories, users, request approval
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+commit 9d509c2b1e514467517ea404adfc99a949f33237
+Author:     Jishnu <jishnukrishnamurrthy@gmail.com>
+AuthorDate: 2026-10-31 13:58:21 +0000
+Commit:     Jishnu <jishnukrishnamurrthy@gmail.com>
+CommitDate: 2026-10-31 13:58:21 +0000
+
+    test(frontend): component tests for auth, route guards, forms and navigation
+    
+    - AuthContext, ProtectedRoute and AdminRoute
+    - Login and Register input validation and error handling
+    - RequestBook form validation, submit and list refresh
+    - BookCard fallbacks and Navbar role-based links
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+commit acb69830eac0d02c061fc97f6df14c0514dd76c2
+Author:     Jishnu <jishnukrishnamurrthy@gmail.com>
+AuthorDate: 2026-10-31 13:58:21 +0000
+Commit:     Jishnu <jishnukrishnamurrthy@gmail.com>
+CommitDate: 2026-10-31 13:58:21 +0000
+
+    test(frontend): unit tests for mock API, axios client, hooks and utilities
+    
+    - mock API handlers: auth, categories, books (search/filter/sort/paging),
+      favorites, downloads, requests, users, persistence
+    - axios client: auth header, 401 session clearing, 404s, env-driven config
+    - useDebounce hook and triggerFileDownload helper
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+commit 4cf835853e7d6b468ff98822ef992bb0f2eda255
+Author:     Jishnu <jishnukrishnamurrthy@gmail.com>
+AuthorDate: 2026-10-31 13:58:20 +0000
+Commit:     Jishnu <jishnukrishnamurrthy@gmail.com>
+CommitDate: 2026-10-31 13:58:20 +0000
+
+    build(test): add Vitest, Testing Library and coverage tooling
+    
+    - vitest + jsdom + @testing-library/react, user-event, jest-dom
+    - coverage via @vitest/coverage-v8 (text, lcov, html, json-summary)
+    - JUnit and JSON reporters write to test-results/
+    - npm scripts: test, test:watch, test:coverage, test:ci
+    - versions pinned so tests run on Node 18+
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+commit fde12b4bb9976a67ff859fa115ca862769c18b97
+Author:     Jishnu <jishnukrishnamurrthy@gmail.com>
+AuthorDate: 2026-10-31 13:43:57 +0000
+Commit:     Jishnu <jishnukrishnamurrthy@gmail.com>
+CommitDate: 2026-10-31 13:43:57 +0000
+
+    feat(devops): add Vercel config and env-driven API settings
+    
+    - vercel.json: Vite build, dist output, SPA rewrite for react-router
+    - .env.example: documents VITE_USE_MOCKS and VITE_API_BASE_URL
+    - api/config.js: USE_MOCKS and API_BASE_URL can be set by environment
+      variable; defaults keep current behaviour (mocks on, base URL /api)
+    - .gitignore: ignore coverage, test-results and .env files
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+commit ebc5ddc5382fe121f7adbd8b64fa4dbbb59ee421
+Merge: 00e3ea2 28b5d85
+Author:     Jishnu <jishnukrishnamurrthy@gmail.com>
+AuthorDate: 2026-10-31 13:43:57 +0000
+Commit:     Jishnu <jishnukrishnamurrthy@gmail.com>
+CommitDate: 2026-10-31 13:43:57 +0000
+
+    chore(devops): bring frontend-dev into devops-dev for test and CI setup
+    
+    Merges origin/frontend-dev (28b5d85) so tests and pipelines can run against
+    the real frontend source. No frontend files are modified.
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+commit 28b5d85233b51f914b3d1fe0a8b7d3fea1252fe0
+Author:     PreranaNandivada06 <nandivada.prerana@gmail.com>
+AuthorDate: 2026-10-31 09:30:55 +0530
+Commit:     PreranaNandivada06 <nandivada.prerana@gmail.com>
+CommitDate: 2026-10-31 09:30:55 +0530
+
+    feat(frontend): complete phases 1-3 with mock API, routes, and admin dashboard
+
+commit 00e3ea2673a914e5128e77eef58f667ecdd171d8
+Author:     Nikitha Murali <jungseoneun257@gmail.com>
+AuthorDate: 2026-10-30 08:51:40 +0530
+Commit:     GitHub <noreply@github.com>
+CommitDate: 2026-10-30 08:51:40 +0530
+
+    Initial commit

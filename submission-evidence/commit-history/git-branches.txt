@@ -1,0 +1,20 @@
+Generated 2026-10-31T14:03:53Z at local devops-dev HEAD 0cc2f42. The final evidence commit that adds these files is made after generation, so it is not listed.
+
+$ git branch -a -vv
+* devops-dev                  0cc2f42 [origin/devops-dev: ahead 12] docs(evidence): add test, build, workflow and deployment evidence
+  main                        00e3ea2 [origin/main] Initial commit
+  remotes/origin/HEAD         -> origin/main
+  remotes/origin/backend-dev  00e3ea2 Initial commit
+  remotes/origin/devops-dev   00e3ea2 Initial commit
+  remotes/origin/frontend-dev 28b5d85 feat(frontend): complete phases 1-3 with mock API, routes, and admin dashboard
+  remotes/origin/main         00e3ea2 Initial commit
+
+$ branch tips (hash)
+origin/main            00e3ea2673a914e5128e77eef58f667ecdd171d8
+origin/frontend-dev    28b5d85233b51f914b3d1fe0a8b7d3fea1252fe0
+origin/backend-dev     00e3ea2673a914e5128e77eef58f667ecdd171d8
+origin/devops-dev      00e3ea2673a914e5128e77eef58f667ecdd171d8
+devops-dev             0cc2f42fc12b114f882c8469f423c5ac2e244de2
+
+Local devops-dev is 12 commits ahead of origin/devops-dev (NOT PUSHED).
+(That count includes the developer's frontend commit 28b5d85 brought in by merge ebc5ddc: 11 DevOps commits + 1 developer commit. Merge commit and the 10 commits after it were authored on devops-dev.)

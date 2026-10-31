@@ -1,0 +1,359 @@
+Generated 2026-10-31T14:03:53Z at local devops-dev HEAD 0cc2f42. The final evidence commit that adds these files is made after generation, so it is not listed.
+
+$ git log --stat --all
+commit 0cc2f42fc12b114f882c8469f423c5ac2e244de2
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 14:03:46 2026 +0000
+
+    docs(evidence): add test, build, workflow and deployment evidence
+    
+    - clean-room Node 20 run: npm ci, tests with coverage, build (real logs)
+    - JUnit XML, JSON report, coverage HTML/LCOV/summary, per-test inventory
+    - mutation check, workflow validation log, deployment status
+    - backend and deployment items marked PENDING/BLOCKED with reasons
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ submission-evidence/README.md                      |   38 +
+ .../automated-tests/backend-tests-pending.md       |   16 +
+ .../automated-tests/coverage/base.css              |  224 ++
+ .../automated-tests/coverage/block-navigation.js   |   87 +
+ .../automated-tests/coverage/coverage-summary.json |   30 +
+ .../automated-tests/coverage/favicon.png           |  Bin 0 -> 445 bytes
+ .../automated-tests/coverage/index.html            |  206 +
+ .../automated-tests/coverage/lcov-report/base.css  |  224 ++
+ .../coverage/lcov-report/block-navigation.js       |   87 +
+ .../coverage/lcov-report/favicon.png               |  Bin 0 -> 445 bytes
+ .../coverage/lcov-report/index.html                |  206 +
+ .../coverage/lcov-report/prettify.css              |    1 +
+ .../coverage/lcov-report/prettify.js               |    2 +
+ .../coverage/lcov-report/sort-arrow-sprite.png     |  Bin 0 -> 138 bytes
+ .../automated-tests/coverage/lcov-report/sorter.js |  210 +
+ .../coverage/lcov-report/src/App.jsx.html          |  349 ++
+ .../coverage/lcov-report/src/api/auth.js.html      |  124 +
+ .../coverage/lcov-report/src/api/books.js.html     |  253 ++
+ .../lcov-report/src/api/categories.js.html         |  148 +
+ .../coverage/lcov-report/src/api/client.js.html    |  799 ++++
+ .../coverage/lcov-report/src/api/config.js.html    |  127 +
+ .../coverage/lcov-report/src/api/downloads.js.html |  112 +
+ .../coverage/lcov-report/src/api/favorites.js.html |  112 +
+ .../coverage/lcov-report/src/api/index.html        |  251 ++
+ .../coverage/lcov-report/src/api/mockData.js.html  | 1900 +++++++++
+ .../coverage/lcov-report/src/api/requests.js.html  |  166 +
+ .../coverage/lcov-report/src/api/users.js.html     |  130 +
+ .../lcov-report/src/components/AdminRoute.jsx.html |  166 +
+ .../lcov-report/src/components/BookCard.jsx.html   |  295 ++
+ .../lcov-report/src/components/Navbar.jsx.html     |  439 ++
+ .../src/components/ProtectedRoute.jsx.html         |  154 +
+ .../coverage/lcov-report/src/components/index.html |  161 +
+ .../lcov-report/src/context/AuthContext.jsx.html   |  373 ++
+ .../coverage/lcov-report/src/context/index.html    |  116 +
+ .../coverage/lcov-report/src/hooks/index.html      |  116 +
+ .../lcov-report/src/hooks/useDebounce.js.html      |  154 +
+ .../coverage/lcov-report/src/index.html            |  116 +
+ .../lcov-report/src/pages/AdminDashboard.jsx.html  | 2428 +++++++++++
+ .../lcov-report/src/pages/BookDetails.jsx.html     |  850 ++++
+ .../coverage/lcov-report/src/pages/Browse.jsx.html |  778 ++++
+ .../lcov-report/src/pages/Downloads.jsx.html       |  559 +++
+ .../lcov-report/src/pages/Favorites.jsx.html       |  340 ++
+ .../coverage/lcov-report/src/pages/Home.jsx.html   |  472 +++
+ .../coverage/lcov-report/src/pages/Login.jsx.html  |  448 +++
+ .../lcov-report/src/pages/NotFound.jsx.html        |  136 +
+ .../lcov-report/src/pages/Register.jsx.html        |  460 +++
+ .../lcov-report/src/pages/RequestBook.jsx.html     |  910 +++++
+ .../coverage/lcov-report/src/pages/index.html      |  251 ++
+ .../lcov-report/src/utils/downloadFile.js.html     |  145 +
+ .../coverage/lcov-report/src/utils/index.html      |  116 +
+ .../automated-tests/coverage/lcov.info             | 4231 ++++++++++++++++++++
+ .../automated-tests/coverage/prettify.css          |    1 +
+ .../automated-tests/coverage/prettify.js           |    2 +
+ .../automated-tests/coverage/sort-arrow-sprite.png |  Bin 0 -> 138 bytes
+ .../automated-tests/coverage/sorter.js             |  210 +
+ .../automated-tests/coverage/src/App.jsx.html      |  349 ++
+ .../automated-tests/coverage/src/api/auth.js.html  |  124 +
+ .../automated-tests/coverage/src/api/books.js.html |  253 ++
+ .../coverage/src/api/categories.js.html            |  148 +
+ .../coverage/src/api/client.js.html                |  799 ++++
+ .../coverage/src/api/config.js.html                |  127 +
+ .../coverage/src/api/downloads.js.html             |  112 +
+ .../coverage/src/api/favorites.js.html             |  112 +
+ .../automated-tests/coverage/src/api/index.html    |  251 ++
+ .../coverage/src/api/mockData.js.html              | 1900 +++++++++
+ .../coverage/src/api/requests.js.html              |  166 +
+ .../automated-tests/coverage/src/api/users.js.html |  130 +
+ .../coverage/src/components/AdminRoute.jsx.html    |  166 +
+ .../coverage/src/components/BookCard.jsx.html      |  295 ++
+ .../coverage/src/components/Navbar.jsx.html        |  439 ++
+ .../src/components/ProtectedRoute.jsx.html         |  154 +
+ .../coverage/src/components/index.html             |  161 +
+ .../coverage/src/context/AuthContext.jsx.html      |  373 ++
+ .../coverage/src/context/index.html                |  116 +
+ .../automated-tests/coverage/src/hooks/index.html  |  116 +
+ .../coverage/src/hooks/useDebounce.js.html         |  154 +
+ .../automated-tests/coverage/src/index.html        |  116 +
+ .../coverage/src/pages/AdminDashboard.jsx.html     | 2428 +++++++++++
+ .../coverage/src/pages/BookDetails.jsx.html        |  850 ++++
+ .../coverage/src/pages/Browse.jsx.html             |  778 ++++
+ .../coverage/src/pages/Downloads.jsx.html          |  559 +++
+ .../coverage/src/pages/Favorites.jsx.html          |  340 ++
+ .../coverage/src/pages/Home.jsx.html               |  472 +++
+ .../coverage/src/pages/Login.jsx.html              |  448 +++
+ .../coverage/src/pages/NotFound.jsx.html           |  136 +
+ .../coverage/src/pages/Register.jsx.html           |  460 +++
+ .../coverage/src/pages/RequestBook.jsx.html        |  910 +++++
+ .../automated-tests/coverage/src/pages/index.html  |  251 ++
+ .../coverage/src/utils/downloadFile.js.html        |  145 +
+ .../automated-tests/coverage/src/utils/index.html  |  116 +
+ submission-evidence/automated-tests/junit.xml      |  499 +++
+ .../automated-tests/mutation-checks.md             |   14 +
+ submission-evidence/automated-tests/results.json   |    1 +
+ submission-evidence/automated-tests/summary.md     |   34 +
+ .../automated-tests/test-inventory.md              |  252 ++
+ .../automated-tests/test-run-node20.log            |  149 +
+ .../automated-tests/tested-commit.txt              |    1 +
+ .../build-verification/build-node20.log            |   33 +
+ .../build-verification/npm-ci-node20.log           |    8 +
+ .../deployment/deployment-status.md                |   39 +
+ submission-evidence/github-actions/README.md       |   29 +
+ .../github-actions/workflow-validation.log         |   21 +
+ 102 files changed, 35763 insertions(+)
+
+commit 9dece5b7669382923c22a82f6ee5ec05b2aa3113
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 14:03:46 2026 +0000
+
+    docs: add DevOps guide and frontend/backend integration checklist
+    
+    - DEVOPS.md: branches, commit and PR workflow, testing, CI/CD, build,
+      deployment, environment variables
+    - integration checklist: endpoints and payloads the frontend expects, risks
+      found in the code, CORS options, steps for when the backend arrives
+    - README links to the DevOps guide
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ DEVOPS.md                                          | 114 +++++++++++++++++++++
+ README.md                                          |   5 +
+ .../documentation/integration-checklist.md         |  76 ++++++++++++++
+ 3 files changed, 195 insertions(+)
+
+commit 5ade9416c5bdb36afa6f8b4e9bb6364e327b613c
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 13:58:56 2026 +0000
+
+    ci: add manual Vercel deployment workflow for the frontend
+    
+    - workflow_dispatch only, preview or production target
+    - runs tests before deploying, fails clearly if secrets are missing
+    - requires VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID repository secrets
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ .github/workflows/deploy-frontend.yml | 70 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 70 insertions(+)
+
+commit 34c93c719a3e38d37f72bfbaef32d8083edf1cde
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 13:58:56 2026 +0000
+
+    ci: add GitHub Actions CI with frontend test/build and auto-enabled backend jobs
+    
+    - triggers on push and pull_request for main, frontend-dev, backend-dev, devops-dev
+    - frontend: npm ci, tests with coverage, job summary, production build, artifacts
+    - detects Python/Node/Java backend code and runs backend jobs automatically
+    - reports SKIPPED (never passed) when no backend code exists
+    - final gate fails the run if any job that ran failed
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ .github/workflows/ci.yml                 | 263 +++++++++++++++++++++++++++++++
+ frontend-dev/scripts/summarize-tests.mjs |  72 +++++++++
+ 2 files changed, 335 insertions(+)
+
+commit 18a6644efa1a4f0eb61cbe2110d72b2e7b380dd1
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 13:58:21 2026 +0000
+
+    test(api): add contract tests for mock API and live backend
+    
+    Same assertions run against the built-in mock API and, when API_TEST_URL
+    is set, against the real backend. Skipped (not passed) otherwise.
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ frontend-dev/src/__tests__/api.contract.test.js | 224 ++++++++++++++++++++++++
+ 1 file changed, 224 insertions(+)
+
+commit 0f3b0400d98a13000d0549450980b4c9a4e9071f
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 13:58:21 2026 +0000
+
+    test(frontend): integration tests rendering the full app against the mock API
+    
+    - Browse search, filter, sort, error and retry
+    - routing, 404 and access control for anonymous, user and admin
+    - login journeys, favorites, downloads, book details
+    - admin dashboard: books, categories, users, request approval
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ .../src/__tests__/App.integration.test.jsx         | 214 +++++++++++++++++++++
+ .../src/__tests__/Pages.integration.test.jsx       | 179 +++++++++++++++++
+ 2 files changed, 393 insertions(+)
+
+commit 9d509c2b1e514467517ea404adfc99a949f33237
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 13:58:21 2026 +0000
+
+    test(frontend): component tests for auth, route guards, forms and navigation
+    
+    - AuthContext, ProtectedRoute and AdminRoute
+    - Login and Register input validation and error handling
+    - RequestBook form validation, submit and list refresh
+    - BookCard fallbacks and Navbar role-based links
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ frontend-dev/src/__tests__/AuthContext.test.jsx | 147 +++++++++++++++++++++++
+ frontend-dev/src/__tests__/BookCard.test.jsx    |  71 +++++++++++
+ frontend-dev/src/__tests__/Login.test.jsx       | 140 ++++++++++++++++++++++
+ frontend-dev/src/__tests__/Navbar.test.jsx      |  81 +++++++++++++
+ frontend-dev/src/__tests__/Register.test.jsx    | 104 ++++++++++++++++
+ frontend-dev/src/__tests__/RequestBook.test.jsx | 153 ++++++++++++++++++++++++
+ frontend-dev/src/__tests__/routeGuards.test.jsx |  79 ++++++++++++
+ 7 files changed, 775 insertions(+)
+
+commit acb69830eac0d02c061fc97f6df14c0514dd76c2
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 13:58:21 2026 +0000
+
+    test(frontend): unit tests for mock API, axios client, hooks and utilities
+    
+    - mock API handlers: auth, categories, books (search/filter/sort/paging),
+      favorites, downloads, requests, users, persistence
+    - axios client: auth header, 401 session clearing, 404s, env-driven config
+    - useDebounce hook and triggerFileDownload helper
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ frontend-dev/src/__tests__/apiClient.test.js    | 231 +++++++++++++++
+ frontend-dev/src/__tests__/downloadFile.test.js |  56 ++++
+ frontend-dev/src/__tests__/mockHandlers.test.js | 359 ++++++++++++++++++++++++
+ frontend-dev/src/__tests__/useDebounce.test.js  |  60 ++++
+ 4 files changed, 706 insertions(+)
+
+commit 4cf835853e7d6b468ff98822ef992bb0f2eda255
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 13:58:20 2026 +0000
+
+    build(test): add Vitest, Testing Library and coverage tooling
+    
+    - vitest + jsdom + @testing-library/react, user-event, jest-dom
+    - coverage via @vitest/coverage-v8 (text, lcov, html, json-summary)
+    - JUnit and JSON reporters write to test-results/
+    - npm scripts: test, test:watch, test:coverage, test:ci
+    - versions pinned so tests run on Node 18+
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ frontend-dev/package-lock.json  | 2134 ++++++++++++++++++++++++++++++++++++---
+ frontend-dev/package.json       |   15 +-
+ frontend-dev/src/test/setup.js  |   15 +
+ frontend-dev/src/test/utils.jsx |   39 +
+ frontend-dev/vitest.config.js   |   27 +
+ 5 files changed, 2094 insertions(+), 136 deletions(-)
+
+commit fde12b4bb9976a67ff859fa115ca862769c18b97
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 13:43:57 2026 +0000
+
+    feat(devops): add Vercel config and env-driven API settings
+    
+    - vercel.json: Vite build, dist output, SPA rewrite for react-router
+    - .env.example: documents VITE_USE_MOCKS and VITE_API_BASE_URL
+    - api/config.js: USE_MOCKS and API_BASE_URL can be set by environment
+      variable; defaults keep current behaviour (mocks on, base URL /api)
+    - .gitignore: ignore coverage, test-results and .env files
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+ frontend-dev/.env.example      | 10 ++++++++++
+ frontend-dev/.gitignore        |  7 +++++++
+ frontend-dev/src/api/config.js |  7 +++++--
+ frontend-dev/vercel.json       |  8 ++++++++
+ 4 files changed, 30 insertions(+), 2 deletions(-)
+
+commit ebc5ddc5382fe121f7adbd8b64fa4dbbb59ee421
+Merge: 00e3ea2 28b5d85
+Author: Jishnu <jishnukrishnamurrthy@gmail.com>
+Date:   Sat Oct 31 13:43:57 2026 +0000
+
+    chore(devops): bring frontend-dev into devops-dev for test and CI setup
+    
+    Merges origin/frontend-dev (28b5d85) so tests and pipelines can run against
+    the real frontend source. No frontend files are modified.
+    
+    Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_01PjKHzFBAtNRFKagGn1FGMy
+
+commit 28b5d85233b51f914b3d1fe0a8b7d3fea1252fe0
+Author: PreranaNandivada06 <nandivada.prerana@gmail.com>
+Date:   Sat Oct 31 09:30:55 2026 +0530
+
+    feat(frontend): complete phases 1-3 with mock API, routes, and admin dashboard
+
+ frontend-dev/.gitignore                        |   24 +
+ frontend-dev/index.html                        |   17 +
+ frontend-dev/package-lock.json                 | 2141 ++++++++++++++++++++++++
+ frontend-dev/package.json                      |   23 +
+ frontend-dev/src/App.jsx                       |   88 +
+ frontend-dev/src/api/auth.js                   |   13 +
+ frontend-dev/src/api/books.js                  |   56 +
+ frontend-dev/src/api/categories.js             |   21 +
+ frontend-dev/src/api/client.js                 |  238 +++
+ frontend-dev/src/api/config.js                 |   11 +
+ frontend-dev/src/api/downloads.js              |    9 +
+ frontend-dev/src/api/favorites.js              |    9 +
+ frontend-dev/src/api/mockData.js               |  605 +++++++
+ frontend-dev/src/api/requests.js               |   27 +
+ frontend-dev/src/api/users.js                  |   15 +
+ frontend-dev/src/components/AdminRoute.jsx     |   27 +
+ frontend-dev/src/components/BookCard.jsx       |   70 +
+ frontend-dev/src/components/Navbar.jsx         |  118 ++
+ frontend-dev/src/components/ProtectedRoute.jsx |   23 +
+ frontend-dev/src/context/AuthContext.jsx       |   96 ++
+ frontend-dev/src/hooks/useDebounce.js          |   23 +
+ frontend-dev/src/index.css                     | 1014 +++++++++++
+ frontend-dev/src/main.jsx                      |   16 +
+ frontend-dev/src/pages/AdminDashboard.jsx      |  781 +++++++++
+ frontend-dev/src/pages/BookDetails.jsx         |  255 +++
+ frontend-dev/src/pages/Browse.jsx              |  231 +++
+ frontend-dev/src/pages/Downloads.jsx           |  158 ++
+ frontend-dev/src/pages/Favorites.jsx           |   85 +
+ frontend-dev/src/pages/Home.jsx                |  129 ++
+ frontend-dev/src/pages/Login.jsx               |  121 ++
+ frontend-dev/src/pages/NotFound.jsx            |   17 +
+ frontend-dev/src/pages/Register.jsx            |  125 ++
+ frontend-dev/src/pages/RequestBook.jsx         |  275 +++
+ frontend-dev/src/utils/downloadFile.js         |   20 +
+ frontend-dev/vite.config.js                    |   18 +
+ 35 files changed, 6899 insertions(+)
+
+commit 00e3ea2673a914e5128e77eef58f667ecdd171d8
+Author: Nikitha Murali <jungseoneun257@gmail.com>
+Date:   Fri Oct 30 08:51:40 2026 +0530
+
+    Initial commit
+
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
