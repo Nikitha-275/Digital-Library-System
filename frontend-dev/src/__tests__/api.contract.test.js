@@ -9,26 +9,28 @@
  *      integrated with confidence.
  *
  * Run against a live backend:
- *   API_TEST_URL=http://localhost:8000/api \
- *   API_TEST_EMAIL=user@example.com API_TEST_PASSWORD=password123 \
- *   API_TEST_ADMIN_EMAIL=admin@example.com API_TEST_ADMIN_PASSWORD=adminpassword \
- *   npm test
+ *   (backend running with `python seed.py` data)
+ *   API_TEST_URL=http://localhost:8000 npm test
+ *
+ * The live target is exercised through src/api/liveAdapter.js, exactly like the UI.
  *
  * When API_TEST_URL is not set the live suite is reported as SKIPPED
  * (not passed), so missing backend coverage is always visible.
  */
 import { describe, it, expect, beforeAll } from 'vitest';
 import axios from 'axios';
+import { createLiveAdapter } from '../api/liveAdapter.js';
 
 const LIVE_URL = process.env.API_TEST_URL;
-const USER = {
-  email: process.env.API_TEST_EMAIL || 'user@example.com',
-  password: process.env.API_TEST_PASSWORD || 'password123',
-};
-const ADMIN = {
-  email: process.env.API_TEST_ADMIN_EMAIL || 'admin@example.com',
-  password: process.env.API_TEST_ADMIN_PASSWORD || 'adminpassword',
-};
+// Mock accounts, and the accounts created by the backend's `python seed.py`.
+const MOCK_USER = { email: 'user@example.com', password: 'password123' };
+const MOCK_ADMIN = { email: 'admin@example.com', password: 'adminpassword' };
+const SEED_USER = { email: 'student@library.com', password: 'Student@123' };
+const SEED_ADMIN = { email: 'admin@library.com', password: 'Admin@123' };
+const pick = (live, mock, seed, envEmail, envPass) => ({
+  email: process.env[envEmail] || (live ? seed : mock).email,
+  password: process.env[envPass] || (live ? seed : mock).password,
+});
 
 // Always resolve to { status, data } - never throw - so error contracts are testable.
 async function call(client, config) {
@@ -42,6 +44,8 @@ async function call(client, config) {
 }
 
 function defineContract(getClient, { live }) {
+  const USER = pick(live, MOCK_USER, SEED_USER, 'API_TEST_EMAIL', 'API_TEST_PASSWORD');
+  const ADMIN = pick(live, MOCK_ADMIN, SEED_ADMIN, 'API_TEST_ADMIN_EMAIL', 'API_TEST_ADMIN_PASSWORD');
   let client;
   let userAuth;
   let adminAuth;
@@ -220,5 +224,12 @@ describe('API contract: built-in mock API', () => {
 });
 
 describe.skipIf(!LIVE_URL)(`API contract: LIVE backend (${LIVE_URL || 'API_TEST_URL not set'})`, () => {
-  defineContract(async () => axios.create({ baseURL: LIVE_URL, timeout: 15000 }), { live: true });
+  // The UI talks to the live backend through liveAdapter, so the contract is tested through it.
+  defineContract(
+    async () =>
+      axios.create({
+        adapter: createLiveAdapter({ http: axios.create({ baseURL: LIVE_URL, timeout: 15000 }) }),
+      }),
+    { live: true }
+  );
 });

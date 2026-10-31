@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { USE_MOCKS, API_BASE_URL } from './config';
 import { mockHandlers } from './mockData';
+import { createLiveAdapter } from './liveAdapter';
 
 /**
  * Custom Mock Adapter for Axios
@@ -206,7 +207,8 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  ...(USE_MOCKS ? { adapter: mockAdapter } : {}),
+  // Mock API for local work; live adapter translates between the UI and the FastAPI backend.
+  adapter: USE_MOCKS ? mockAdapter : createLiveAdapter(),
 });
 
 api.interceptors.request.use(

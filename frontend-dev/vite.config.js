@@ -12,6 +12,8 @@ export default defineConfig({
         target: 'http://localhost:8000',
         changeOrigin: true,
         secure: false,
+        // The backend routes have no /api prefix (PRD Section 5), so strip it.
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },

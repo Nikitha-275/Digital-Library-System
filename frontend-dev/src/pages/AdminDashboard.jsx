@@ -146,7 +146,15 @@ export default function AdminDashboard() {
         file_size: bookPdfFile ? `${(bookPdfFile.size / (1024 * 1024)).toFixed(1)} MB` : '3.8 MB',
       };
 
-      await booksApi.createBook(bookPayload);
+      if (bookPdfFile) {
+        // Send multipart so the PDF itself is uploaded, not just its size.
+        const form = new FormData();
+        Object.entries(bookPayload).forEach(([key, value]) => form.append(key, value));
+        form.append('file', bookPdfFile);
+        await booksApi.createBook(form);
+      } else {
+        await booksApi.createBook(bookPayload);
+      }
       showFeedback('success', `Book "${bookTitle}" added successfully!`);
 
       // Reset form

@@ -216,7 +216,7 @@ describe('environment-driven API configuration', () => {
     expect(cfg.API_BASE_URL).toBe('https://backend.example.com/api');
   });
 
-  it('the axios client uses the mock adapter only when mocks are on', async () => {
+  it('the axios client uses the mock adapter when mocks are on and the live adapter when off', async () => {
     vi.resetModules();
     const mocked = (await import('../api/client.js')).default;
     expect(typeof mocked.defaults.adapter).toBe('function');
@@ -225,7 +225,10 @@ describe('environment-driven API configuration', () => {
     vi.stubEnv('VITE_USE_MOCKS', 'false');
     vi.stubEnv('VITE_API_BASE_URL', 'https://backend.example.com/api');
     const live = (await import('../api/client.js')).default;
-    expect(typeof live.defaults.adapter).not.toBe('function');
+    // live mode uses the backend translation adapter, not the in-browser mock
+    expect(typeof live.defaults.adapter).toBe('function');
+    expect(live.defaults.adapter.toString()).not.toBe(mocked.defaults.adapter.toString());
+    expect(live.defaults.adapter.name).toBe('liveAdapter');
     expect(live.defaults.baseURL).toBe('https://backend.example.com/api');
   });
 });
