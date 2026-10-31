@@ -1,76 +1,43 @@
-# Frontend / Backend Integration Checklist
+# Frontend / Backend Integration (verified against the real backend)
 
-Derived from the actual frontend code at `frontend-dev/src/api/` (commit `28b5d85`). Nothing here is claimed as integrated: no backend exists in the repository yet.
+Backend: FastAPI app pushed by the backend developer to `main` (commit `ad0cbf2`), merged into `devops-dev`.
+Frontend: `frontend-dev/`. The two were written against **different API contracts**, so the frontend now has a translation layer.
 
-## 1. How the frontend talks to the API today
+## How it works
 
-- All calls go through one axios client (`src/api/client.js`) with base URL `/api`.
-- `USE_MOCKS` (in `src/api/config.js`) swaps in an in-browser mock adapter. It is now controlled by `VITE_USE_MOCKS` (default `true`, so behaviour is unchanged).
-- In local dev, Vite proxies `/api` to `http://localhost:8000` (`vite.config.js`).
-- Auth: `Authorization: Bearer <token>` is attached from `localStorage.token`. Any `401` clears the session and redirects to `/login`.
-- Errors: the UI reads **`err.response.data.message`** only.
+- `frontend-dev/src/api/liveAdapter.js` is an axios adapter used **only when `VITE_USE_MOCKS=false`**. The mock API, the UI pages and the backend are unchanged.
+- Local dev: Vite proxies `/api/*` to `http://localhost:8000/*` and strips `/api` (the backend has no `/api` prefix).
+- Deployed: set `VITE_API_BASE_URL` to the backend root URL (no `/api`), or add a Vercel rewrite `/api/(:path*)` -> `https://<backend>/:path*`.
 
-## 2. Endpoints the backend must provide
+## Contract differences handled by the adapter
 
-| Method | Path | Body / query | Success response |
-|---|---|---|---|
-| POST | `/auth/login` | `{email, password}` | `{token, user:{id,name,email,role}}` |
-| POST | `/auth/register` | `{name, email, password}` | `{token, user:{id,name,email,role}}` (201) |
-| GET | `/categories` | - | `[{id, name}]` |
-| POST | `/categories` (admin) | `{name}` | `{id, name}` (201) |
-| DELETE | `/categories/:id` (admin) | - | `{success, message}` |
-| GET | `/books` | `search, category, sort, page, limit` | `{books[], page, limit, total, totalPages}` |
-| GET | `/books/recent` | `limit` | `[book]` |
-| GET | `/books/popular` | `limit` | `[book]` |
-| GET | `/books/:id` | - | `book` |
-| POST | `/books` (admin) | JSON today; `multipart/form-data` supported by the API helper | `book` (201) |
-| DELETE | `/books/:id` (admin) | - | `{success, message}` |
-| POST | `/books/:id/favorite` | - | `{success, is_favorite, book}` |
-| GET | `/books/:id/download` | `responseType: blob` | PDF bytes |
-| GET | `/favorites` | - | `[book]` (current user's) |
-| GET | `/downloads` | - | `[{id, bookId, title, author, category, cover_image, downloaded_at, file_size, format}]` |
-| POST | `/requests` | `{bookName, author, category, note}` | `{id, userId, requesterName, requesterEmail, bookName, author, category, note, status, created_at}` (201) |
-| GET | `/requests/me` | - | `[request]` (current user's) |
-| GET | `/requests` (admin) | - | `[request]` (all) |
-| PATCH | `/requests/:id/status` (admin) | `{status: pending\|approved\|rejected}` | `request` |
-| GET | `/users` (admin) | - | `[{id,name,email,role,created_at}]` (no passwords) |
-| DELETE | `/users/:id` (admin) | - | `{success, message}` |
+| UI expects | Backend provides | Adapter does |
+|---|---|---|
+| `POST /auth/login` -> `{token, user}` | `{access_token, role, name}` (no user object) | login, then `GET /auth/me`, returns `{token, user}` |
+| `POST /auth/register` -> `{token, user}` | `201 {id,name,email,role}` | register, then login |
+| role `user` | role `student` | maps `student` -> `user` |
+| errors `{message}` | `{detail}` (string or list) | copies `detail` into `message` |
+| `GET /books?category=<name>&page&limit&sort` -> `{books,page,limit,total,totalPages}` | `?category_id&limit&offset&sort=newest\|title\|popular` -> `{total,items}` | name->id lookup, page->offset, sort names; `oldest`/`title_desc` sorted in the adapter |
+| `POST /books/:id/favorite` toggle | `POST`/`DELETE /favorites/:id` | reads state, calls the right verb |
+| `GET /favorites`, `/downloads` | `/me/favorites`, `/me/downloads` (nested `book`) | renames, flattens |
+| `/requests`, `/requests/me`, `PATCH /requests/:id/status` | `/admin/requests`, `/requests/mine`, `PATCH /admin/requests/:id` | renames; camelCase <-> snake_case |
+| `/users` | `/admin/users` | renames |
+| `POST /books` JSON | multipart (admin) | Admin form now sends the chosen PDF as multipart |
+| book `file_size`, `pages`, `isbn`, `pdf_url` | not provided | shown as "—" (no invented values) |
+| timestamps | naive UTC | marked as UTC |
 
-`book` = `{id, title, author, category, categoryId, cover_image, description, download_count, created_at, pdf_url, is_favorite, file_size, pages, isbn}`.
+## Known product differences (for the team to decide)
 
-## 3. Things that will break if not agreed with the backend developer
+1. **Browsing now requires login in live mode.** The backend returns 401 for anonymous `/books`, while the UI shows browse publicly; the UI's 401 handler sends visitors to `/login`.
+2. Backend has no file size / page count / ISBN; the UI shows "—".
+3. `email-validator` was missing from `requirements.txt` (clean install failed); added in `f7d0043` - the backend developer should keep it.
+4. Backend was pushed to `main`, not `backend-dev`.
+5. Backend README says Vite proxies `/api` directly; the rewrite was needed (done in the frontend).
 
-These come from reading the code, not from guesses:
+## Verification actually run
 
-1. **Error body must contain `message`.** Frameworks such as FastAPI return `{"detail": ...}` by default, so the UI would show a generic fallback instead of the real error. Either return `{message}` or change the frontend.
-2. **Categories are passed by name, not id** (`/books?category=<name>`, request body `category: <name>`). The backend must accept names, or the frontend must change.
-3. **`is_favorite` is per user.** The mock keeps one global flag; the backend must compute it for the logged-in user.
-4. **PDF upload is not wired.** The admin "Add Book" form sends JSON and only uses the chosen PDF to compute `file_size`; the file itself is never uploaded. If the backend stores PDFs, `handleAddBook` in `AdminDashboard.jsx` must send `FormData` (the API helper already supports it).
-5. **Authorization is only enforced in the UI today.** The mock does not check roles. The backend must return 401/403 for missing tokens and non-admin access to admin endpoints (the live contract tests check this).
-6. **Not-found returns 400 in the mock.** A real backend should return 404; the UI handles any error status.
-7. **Request ids** are strings like `req-123` in the mock. Any id format works for the real API (the UI only echoes it back).
-8. `pdf_url` points to `/sample-files/sample-book.pdf`, which does not exist in the repository; the backend must supply real URLs or serve downloads only via `/books/:id/download`.
-
-## 4. CORS and routing
-
-Choose one:
-
-- **Same origin (recommended for the deployed app):** add a Vercel rewrite `/api/(.*)` -> `https://<backend-host>/api/$1`. No CORS needed; keep `VITE_API_BASE_URL=/api`.
-- **Cross origin:** set `VITE_API_BASE_URL=https://<backend-host>/api` at build time and enable CORS on the backend for the Vercel origin, methods `GET, POST, PUT, PATCH, DELETE, OPTIONS`, headers `Authorization, Content-Type`.
-
-## 5. Database (implied by the frontend)
-
-Entities used by the UI: users (with role), categories, books, favorites (user x book), downloads (user x book x time), book requests (with status). The repository does not specify a database; this must be decided by the backend developer.
-
-## 6. Steps when the backend is pushed
-
-- [ ] Fetch `backend-dev`, inspect its contents and tests before merging anything.
-- [ ] Confirm the stack and add its dependency file under `backend/` (or the folder used); CI detects Python, Node and Java automatically.
-- [ ] Start the backend on port 8000 with the same demo accounts the contract tests use (or set `API_TEST_*` variables).
-- [ ] Run `API_TEST_URL=http://localhost:8000/api npm test` in `frontend-dev/` and fix any contract failures.
-- [ ] Resolve the items in section 3 together with the backend developer.
-- [ ] Set `VITE_USE_MOCKS=false` and `VITE_API_BASE_URL` for the deployed frontend.
-- [ ] Verify login, browse, download, request and admin flows against the real backend.
-- [ ] Deploy the backend, then redeploy the frontend pointing at it; record URLs in `submission-evidence/deployment/`.
-
-Do not mark integration complete until these pass against a real backend.
+- Backend tests: 52 passed, 93% coverage of `app/` (`../automated-tests/backend/`).
+- Live contract tests through the adapter, backend running on SQLite + `seed.py`: 17 passed (`../automated-tests/live-contract-run.log`).
+- Full frontend suite with the live backend: 221 passed, 2 skipped, 0 failed (`../automated-tests/test-run-live-node22.log`).
+- Real browser (Chromium) against `vite preview` built with `VITE_USE_MOCKS=false`: login as seeded student -> `POST /api/auth/login 200`, `GET /api/auth/me 200`, books/categories loaded, no page errors (`../deployment/live-browse.png`).
+- NOT yet verified: MySQL (all runs used SQLite), cross-origin deployment, PDF download through the UI against a deployed backend.

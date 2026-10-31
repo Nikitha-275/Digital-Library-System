@@ -1,239 +1,239 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="205" failures="0" errors="0" time="47.858">
-    <testsuite name="src/__tests__/App.integration.test.jsx" timestamp="2026-10-31T14:02:45.843Z" hostname="vm" tests="21" failures="0" errors="0" skipped="0" time="8.672854931">
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Browse (public catalog) &gt; anonymous visitors land on Browse and see every book" time="0.383630515">
+<testsuites name="vitest tests" tests="223" failures="0" errors="0" time="49.061">
+    <testsuite name="src/__tests__/App.integration.test.jsx" timestamp="2026-10-31T14:26:49.222Z" hostname="vm" tests="21" failures="0" errors="0" skipped="0" time="8.934385107">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Browse (public catalog) &gt; anonymous visitors land on Browse and see every book" time="0.390961587">
             <system-err>
 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 
             </system-err>
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Browse (public catalog) &gt; search filters the list after the debounce" time="1.071629242">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Browse (public catalog) &gt; search filters the list after the debounce" time="1.097836216">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Browse (public catalog) &gt; shows an empty state for no matches, and Clear All Filters restores the list" time="1.706616054">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Browse (public catalog) &gt; shows an empty state for no matches, and Clear All Filters restores the list" time="1.727317426">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Browse (public catalog) &gt; filters by category" time="0.573045068">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Browse (public catalog) &gt; filters by category" time="0.616602946">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Browse (public catalog) &gt; sorts titles A-Z" time="0.605965508">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Browse (public catalog) &gt; sorts titles A-Z" time="0.611220832">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Browse (public catalog) &gt; shows an error with Retry when the catalog request fails, then recovers" time="0.292092955">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Browse (public catalog) &gt; shows an error with Retry when the catalog request fails, then recovers" time="0.296278629">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; unknown URLs show the 404 page" time="0.010620283">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; unknown URLs show the 404 page" time="0.010840712">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; anonymous visitor to /favorites is sent to the login page" time="0.014033055">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; anonymous visitor to /favorites is sent to the login page" time="0.01888594">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; anonymous visitor to /downloads is sent to the login page" time="0.016880935">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; anonymous visitor to /downloads is sent to the login page" time="0.01133713">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; anonymous visitor to /request is sent to the login page" time="0.017168829">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; anonymous visitor to /request is sent to the login page" time="0.011923946">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; anonymous visitor to /books/1 is sent to the login page" time="0.017035647">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; anonymous visitor to /books/1 is sent to the login page" time="0.011356154">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; anonymous visitor to /admin is sent to the login page" time="0.012402359">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; anonymous visitor to /admin is sent to the login page" time="0.011789029">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; a regular user opening /admin is sent to Browse" time="0.019558743">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Routing and access control &gt; a regular user opening /admin is sent to Browse" time="0.017347926">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="User journeys &gt; logs in through the UI with the demo user and sees the personalised home page" time="0.316422979">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="User journeys &gt; logs in through the UI with the demo user and sees the personalised home page" time="0.328440693">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="User journeys &gt; a wrong password is rejected with the API error message" time="0.421481205">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="User journeys &gt; a wrong password is rejected with the API error message" time="0.476290384">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="User journeys &gt; favorites page lists the user&apos;s favorite books" time="0.270511819">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="User journeys &gt; favorites page lists the user&apos;s favorite books" time="0.270734318">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="User journeys &gt; book details: add to favorites, then download a PDF" time="0.828990375">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="User journeys &gt; book details: add to favorites, then download a PDF" time="0.856240705">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="User journeys &gt; a book id that does not exist shows a not-found message" time="0.264022597">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="User journeys &gt; a book id that does not exist shows a not-found message" time="0.263060857">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Admin journeys &gt; admin logs in through the UI and lands on the dashboard" time="0.335973339">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Admin journeys &gt; admin logs in through the UI and lands on the dashboard" time="0.358788772">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Admin journeys &gt; admin approves a pending book request in the inbox" time="0.853828779">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Admin journeys &gt; admin approves a pending book request in the inbox" time="0.864224667">
         </testcase>
-        <testcase classname="src/__tests__/App.integration.test.jsx" name="Admin journeys &gt; admin adds a category and it appears in the list" time="0.638502914">
-        </testcase>
-    </testsuite>
-    <testsuite name="src/__tests__/AuthContext.test.jsx" timestamp="2026-10-31T14:02:45.854Z" hostname="vm" tests="10" failures="0" errors="0" skipped="0" time="0.064679408">
-        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: initial state &gt; starts logged out when storage is empty" time="0.022507949">
-        </testcase>
-        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: initial state &gt; restores an existing session from localStorage" time="0.002892592">
-        </testcase>
-        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: initial state &gt; does not crash on corrupt user JSON in storage" time="0.002109828">
-        </testcase>
-        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: initial state &gt; a regular user is authenticated but not admin" time="0.001604379">
-        </testcase>
-        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: login &gt; stores token, role and user in state and localStorage" time="0.0055169">
-        </testcase>
-        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: login &gt; exposes isLoading while the request is in flight" time="0.00226719">
-        </testcase>
-        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: login &gt; propagates failure, stays logged out and clears the loading flag" time="0.003792869">
-        </testcase>
-        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: register and logout &gt; register signs the new user in" time="0.002328263">
-        </testcase>
-        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: register and logout &gt; logout clears state and storage" time="0.002603612">
-        </testcase>
-        <testcase classname="src/__tests__/AuthContext.test.jsx" name="useAuth &gt; throws a clear error when used outside AuthProvider" time="0.016458035">
+        <testcase classname="src/__tests__/App.integration.test.jsx" name="Admin journeys &gt; admin adds a category and it appears in the list" time="0.67986693">
         </testcase>
     </testsuite>
-    <testsuite name="src/__tests__/BookCard.test.jsx" timestamp="2026-10-31T14:02:45.855Z" hostname="vm" tests="7" failures="0" errors="0" skipped="0" time="0.194387342">
-        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; shows title, author, category and the cover image" time="0.135057235">
+    <testsuite name="src/__tests__/AuthContext.test.jsx" timestamp="2026-10-31T14:26:49.226Z" hostname="vm" tests="10" failures="0" errors="0" skipped="0" time="0.055520859">
+        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: initial state &gt; starts logged out when storage is empty" time="0.01569742">
+        </testcase>
+        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: initial state &gt; restores an existing session from localStorage" time="0.002190097">
+        </testcase>
+        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: initial state &gt; does not crash on corrupt user JSON in storage" time="0.001405504">
+        </testcase>
+        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: initial state &gt; a regular user is authenticated but not admin" time="0.001513346">
+        </testcase>
+        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: login &gt; stores token, role and user in state and localStorage" time="0.005558244">
+        </testcase>
+        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: login &gt; exposes isLoading while the request is in flight" time="0.003160176">
+        </testcase>
+        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: login &gt; propagates failure, stays logged out and clears the loading flag" time="0.004556056">
+        </testcase>
+        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: register and logout &gt; register signs the new user in" time="0.002739073">
+        </testcase>
+        <testcase classname="src/__tests__/AuthContext.test.jsx" name="AuthProvider: register and logout &gt; logout clears state and storage" time="0.002158903">
+        </testcase>
+        <testcase classname="src/__tests__/AuthContext.test.jsx" name="useAuth &gt; throws a clear error when used outside AuthProvider" time="0.014534649">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/__tests__/BookCard.test.jsx" timestamp="2026-10-31T14:26:49.227Z" hostname="vm" tests="7" failures="0" errors="0" skipped="0" time="0.174600857">
+        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; shows title, author, category and the cover image" time="0.112360949">
             <system-err>
 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 
             </system-err>
         </testcase>
-        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; links to the book details page from both the cover and the title" time="0.016904015">
+        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; links to the book details page from both the cover and the title" time="0.016124523">
         </testcase>
-        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; falls back to &quot;Unknown Author&quot; when the author is missing" time="0.004882777">
+        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; falls back to &quot;Unknown Author&quot; when the author is missing" time="0.005456014">
         </testcase>
-        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; omits the category tag when the book has no category" time="0.004590337">
+        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; omits the category tag when the book has no category" time="0.005006498">
         </testcase>
-        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; shows a placeholder instead of an image when there is no cover" time="0.006854992">
+        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; shows a placeholder instead of an image when there is no cover" time="0.007673635">
         </testcase>
-        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; switches to the placeholder when the cover image fails to load" time="0.0130503">
+        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; switches to the placeholder when the cover image fails to load" time="0.014006795">
         </testcase>
-        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; shows the favorite badge only for favorited books" time="0.010772755">
+        <testcase classname="src/__tests__/BookCard.test.jsx" name="BookCard &gt; shows the favorite badge only for favorited books" time="0.012318982">
         </testcase>
     </testsuite>
-    <testsuite name="src/__tests__/Login.test.jsx" timestamp="2026-10-31T14:02:45.856Z" hostname="vm" tests="9" failures="0" errors="0" skipped="0" time="1.122363629">
-        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; renders the form and a link to registration" time="0.102125747">
+    <testsuite name="src/__tests__/Login.test.jsx" timestamp="2026-10-31T14:26:49.228Z" hostname="vm" tests="9" failures="0" errors="0" skipped="0" time="1.097355222">
+        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; renders the form and a link to registration" time="0.085958554">
             <system-err>
 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 
             </system-err>
         </testcase>
-        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; demo buttons fill in the matching credentials" time="0.072656732">
+        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; demo buttons fill in the matching credentials" time="0.067714664">
         </testcase>
-        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; sends the typed credentials to the API and lands a user on the home page" time="0.177311848">
+        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; sends the typed credentials to the API and lands a user on the home page" time="0.194824302">
         </testcase>
-        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; sends admins straight to the dashboard" time="0.165559392">
+        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; sends admins straight to the dashboard" time="0.159047565">
         </testcase>
-        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; returns the user to the page they originally wanted" time="0.156251882">
+        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; returns the user to the page they originally wanted" time="0.153834765">
         </testcase>
-        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; shows the server error message when login fails" time="0.125440424">
+        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; shows the server error message when login fails" time="0.153756141">
         </testcase>
-        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; falls back to the error message when there is no response body" time="0.156210462">
+        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; falls back to the error message when there is no response body" time="0.124524559">
         </testcase>
-        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; shows a validation message and does not call the API when fields are empty" time="0.006777413">
+        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; shows a validation message and does not call the API when fields are empty" time="0.006872048">
         </testcase>
-        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; disables the form and shows progress while signing in" time="0.157484235">
+        <testcase classname="src/__tests__/Login.test.jsx" name="Login page &gt; disables the form and shows progress while signing in" time="0.149069492">
         </testcase>
     </testsuite>
-    <testsuite name="src/__tests__/Navbar.test.jsx" timestamp="2026-10-31T14:02:45.857Z" hostname="vm" tests="6" failures="0" errors="0" skipped="0" time="0.325387188">
-        <testcase classname="src/__tests__/Navbar.test.jsx" name="Navbar: logged out &gt; shows Browse Books, Login and Register, and no account links" time="0.119961523">
+    <testsuite name="src/__tests__/Navbar.test.jsx" timestamp="2026-10-31T14:26:49.229Z" hostname="vm" tests="6" failures="0" errors="0" skipped="0" time="0.302015206">
+        <testcase classname="src/__tests__/Navbar.test.jsx" name="Navbar: logged out &gt; shows Browse Books, Login and Register, and no account links" time="0.1206886">
             <system-err>
 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 
             </system-err>
         </testcase>
-        <testcase classname="src/__tests__/Navbar.test.jsx" name="Navbar: logged out &gt; the brand links to /browse" time="0.019686385">
+        <testcase classname="src/__tests__/Navbar.test.jsx" name="Navbar: logged out &gt; the brand links to /browse" time="0.018620526">
         </testcase>
-        <testcase classname="src/__tests__/Navbar.test.jsx" name="Navbar: regular user &gt; shows user links, the role badge and the name; hides admin link" time="0.041293904">
+        <testcase classname="src/__tests__/Navbar.test.jsx" name="Navbar: regular user &gt; shows user links, the role badge and the name; hides admin link" time="0.03916047">
         </testcase>
-        <testcase classname="src/__tests__/Navbar.test.jsx" name="Navbar: regular user &gt; the brand links to the home page" time="0.016141445">
+        <testcase classname="src/__tests__/Navbar.test.jsx" name="Navbar: regular user &gt; the brand links to the home page" time="0.018085229">
         </testcase>
-        <testcase classname="src/__tests__/Navbar.test.jsx" name="Navbar: admin &gt; shows the admin dashboard link and hides user-only links" time="0.031231439">
+        <testcase classname="src/__tests__/Navbar.test.jsx" name="Navbar: admin &gt; shows the admin dashboard link and hides user-only links" time="0.025319453">
         </testcase>
-        <testcase classname="src/__tests__/Navbar.test.jsx" name="Navbar: logout &gt; clears the session and sends the user to /login" time="0.094696654">
+        <testcase classname="src/__tests__/Navbar.test.jsx" name="Navbar: logout &gt; clears the session and sends the user to /login" time="0.077548753">
         </testcase>
     </testsuite>
-    <testsuite name="src/__tests__/Pages.integration.test.jsx" timestamp="2026-10-31T14:02:45.858Z" hostname="vm" tests="12" failures="0" errors="0" skipped="0" time="5.393040607">
-        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Home page &gt; greets the user and shows the recent and most-downloaded rows (4 books each)" time="0.397158725">
+    <testsuite name="src/__tests__/Pages.integration.test.jsx" timestamp="2026-10-31T14:26:49.230Z" hostname="vm" tests="12" failures="0" errors="0" skipped="0" time="5.625541927">
+        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Home page &gt; greets the user and shows the recent and most-downloaded rows (4 books each)" time="0.410315699">
             <system-err>
 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 
             </system-err>
         </testcase>
-        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Home page &gt; shows an error message when the collections fail to load" time="0.032740848">
+        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Home page &gt; shows an error message when the collections fail to load" time="0.017338945">
         </testcase>
-        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Downloads page &gt; lists the download history" time="0.31259443">
+        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Downloads page &gt; lists the download history" time="0.347033576">
         </testcase>
-        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Downloads page &gt; re-downloading triggers a file download and records a new history entry" time="0.815211807">
+        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Downloads page &gt; re-downloading triggers a file download and records a new history entry" time="0.834731635">
         </testcase>
-        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Downloads page &gt; shows an empty state when nothing was downloaded" time="0.011271238">
+        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Downloads page &gt; shows an empty state when nothing was downloaded" time="0.013768353">
         </testcase>
-        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Downloads page &gt; shows an error and recovers on Retry" time="0.291856467">
+        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Downloads page &gt; shows an error and recovers on Retry" time="0.308552157">
         </testcase>
-        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Admin dashboard: books &gt; rejects a book whose title is only whitespace" time="0.365734162">
+        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Admin dashboard: books &gt; rejects a book whose title is only whitespace" time="0.411180796">
         </testcase>
-        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Admin dashboard: books &gt; adds a book and the catalog count goes up" time="1.138476201">
+        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Admin dashboard: books &gt; adds a book and the catalog count goes up" time="1.162881625">
         </testcase>
-        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Admin dashboard: books &gt; deletes a book after confirmation" time="0.56449914">
+        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Admin dashboard: books &gt; deletes a book after confirmation" time="0.605642624">
         </testcase>
-        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Admin dashboard: books &gt; does nothing when the admin cancels the delete confirmation" time="0.320590855">
+        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Admin dashboard: books &gt; does nothing when the admin cancels the delete confirmation" time="0.343374099">
         </testcase>
-        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Admin dashboard: users &gt; an admin cannot delete their own account" time="0.30470808">
+        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Admin dashboard: users &gt; an admin cannot delete their own account" time="0.31253354">
         </testcase>
-        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Admin dashboard: users &gt; an admin can remove another user after confirming" time="0.835507005">
+        <testcase classname="src/__tests__/Pages.integration.test.jsx" name="Admin dashboard: users &gt; an admin can remove another user after confirming" time="0.855315399">
         </testcase>
     </testsuite>
-    <testsuite name="src/__tests__/Register.test.jsx" timestamp="2026-10-31T14:02:45.859Z" hostname="vm" tests="6" failures="0" errors="0" skipped="0" time="1.265109529">
-        <testcase classname="src/__tests__/Register.test.jsx" name="Register page &gt; renders all four fields and a link back to sign in" time="0.155178887">
+    <testsuite name="src/__tests__/Register.test.jsx" timestamp="2026-10-31T14:26:49.232Z" hostname="vm" tests="6" failures="0" errors="0" skipped="0" time="1.274011541">
+        <testcase classname="src/__tests__/Register.test.jsx" name="Register page &gt; renders all four fields and a link back to sign in" time="0.091247363">
             <system-err>
 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 
             </system-err>
         </testcase>
-        <testcase classname="src/__tests__/Register.test.jsx" name="Register page &gt; rejects mismatched passwords without calling the API" time="0.298036105">
+        <testcase classname="src/__tests__/Register.test.jsx" name="Register page &gt; rejects mismatched passwords without calling the API" time="0.284433453">
         </testcase>
-        <testcase classname="src/__tests__/Register.test.jsx" name="Register page &gt; rejects passwords shorter than 6 characters" time="0.203624989">
+        <testcase classname="src/__tests__/Register.test.jsx" name="Register page &gt; rejects passwords shorter than 6 characters" time="0.205852402">
         </testcase>
-        <testcase classname="src/__tests__/Register.test.jsx" name="Register page &gt; accepts a password of exactly 6 characters" time="0.183111337">
+        <testcase classname="src/__tests__/Register.test.jsx" name="Register page &gt; accepts a password of exactly 6 characters" time="0.255693734">
         </testcase>
-        <testcase classname="src/__tests__/Register.test.jsx" name="Register page &gt; submits name, email and password (not the confirmation) and goes to /browse" time="0.208467998">
+        <testcase classname="src/__tests__/Register.test.jsx" name="Register page &gt; submits name, email and password (not the confirmation) and goes to /browse" time="0.205691609">
         </testcase>
-        <testcase classname="src/__tests__/Register.test.jsx" name="Register page &gt; shows the server error, for example a duplicate email" time="0.214382738">
-        </testcase>
-    </testsuite>
-    <testsuite name="src/__tests__/RequestBook.test.jsx" timestamp="2026-10-31T14:02:45.859Z" hostname="vm" tests="8" failures="0" errors="0" skipped="0" time="1.15371455">
-        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: loading &gt; fills the category dropdown and preselects the first category" time="0.148759642">
-        </testcase>
-        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: loading &gt; lists my requests with a status badge each" time="0.04456267">
-        </testcase>
-        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: loading &gt; shows an empty state when there are no requests" time="0.019009236">
-        </testcase>
-        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: loading &gt; shows an error with a working Retry when the list fails to load" time="0.087723751">
-        </testcase>
-        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: submitting &gt; submits the form values, confirms success, clears the fields and refreshes the list" time="0.371685528">
-        </testcase>
-        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: submitting &gt; refuses a title that is only whitespace and does not call the API" time="0.122110668">
-        </testcase>
-        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: submitting &gt; shows the server message when submission fails and keeps what was typed" time="0.188923108">
-        </testcase>
-        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: submitting &gt; disables the form while the request is in flight" time="0.169045083">
+        <testcase classname="src/__tests__/Register.test.jsx" name="Register page &gt; shows the server error, for example a duplicate email" time="0.229494162">
         </testcase>
     </testsuite>
-    <testsuite name="src/__tests__/api.contract.test.js" timestamp="2026-10-31T14:02:45.860Z" hostname="vm" tests="34" failures="0" errors="0" skipped="19" time="6.105576655">
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; auth &gt; POST /auth/login returns token and a user without password" time="0.255622644">
+    <testsuite name="src/__tests__/RequestBook.test.jsx" timestamp="2026-10-31T14:26:49.233Z" hostname="vm" tests="8" failures="0" errors="0" skipped="0" time="1.304601522">
+        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: loading &gt; fills the category dropdown and preselects the first category" time="0.202196173">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; auth &gt; POST /auth/login with a wrong password is a 4xx error with a message" time="0.261009726">
+        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: loading &gt; lists my requests with a status badge each" time="0.039663255">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; auth &gt; admin login reports role &quot;admin&quot;" time="0.252002273">
+        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: loading &gt; shows an empty state when there are no requests" time="0.020527848">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; catalog &gt; GET /categories returns [{id, name}]" time="0.251910847">
+        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: loading &gt; shows an error with a working Retry when the list fails to load" time="0.072181322">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; catalog &gt; GET /books returns a paginated envelope" time="0.252667817">
+        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: submitting &gt; submits the form values, confirms success, clears the fields and refreshes the list" time="0.363100698">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; catalog &gt; GET /books?search= narrows the results" time="0.503474889">
+        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: submitting &gt; refuses a title that is only whitespace and does not call the API" time="0.17410986">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; catalog &gt; GET /books/:id returns the book" time="0.501181995">
+        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: submitting &gt; shows the server message when submission fails and keeps what was typed" time="0.203680489">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; catalog &gt; GET /books/:id for a missing book is a 4xx error" time="0.251709505">
+        <testcase classname="src/__tests__/RequestBook.test.jsx" name="RequestBook: submitting &gt; disables the form while the request is in flight" time="0.227018566">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; catalog &gt; GET /books/recent and /books/popular respect the limit" time="0.503641647">
+    </testsuite>
+    <testsuite name="src/__tests__/api.contract.test.js" timestamp="2026-10-31T14:26:49.234Z" hostname="vm" tests="34" failures="0" errors="0" skipped="2" time="7.682602698">
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; auth &gt; POST /auth/login returns token and a user without password" time="0.257225441">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; user data &gt; GET /favorites and /downloads return arrays" time="0.502185858">
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; auth &gt; POST /auth/login with a wrong password is a 4xx error with a message" time="0.264271759">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; user data &gt; POST /books/:id/favorite toggles and reports is_favorite" time="0.753125304">
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; auth &gt; admin login reports role &quot;admin&quot;" time="0.251814227">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; user data &gt; POST /requests creates a pending request visible in GET /requests/me" time="0.504750586">
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; catalog &gt; GET /categories returns [{id, name}]" time="0.252498731">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; user data &gt; POST /requests without required fields is a 4xx error" time="0.25225517">
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; catalog &gt; GET /books returns a paginated envelope" time="0.253820754">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; admin &gt; GET /users (admin) returns users without passwords" time="0.252618715">
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; catalog &gt; GET /books?search= narrows the results" time="0.505097074">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; admin &gt; GET /requests (admin) returns every request" time="0.25113468">
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; catalog &gt; GET /books/:id returns the book" time="0.503309307">
+        </testcase>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; catalog &gt; GET /books/:id for a missing book is a 4xx error" time="0.252304984">
+        </testcase>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; catalog &gt; GET /books/recent and /books/popular respect the limit" time="0.503128193">
+        </testcase>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; user data &gt; GET /favorites and /downloads return arrays" time="0.503134562">
+        </testcase>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; user data &gt; POST /books/:id/favorite toggles and reports is_favorite" time="0.754420623">
+        </testcase>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; user data &gt; POST /requests creates a pending request visible in GET /requests/me" time="0.504239621">
+        </testcase>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; user data &gt; POST /requests without required fields is a 4xx error" time="0.252389854">
+        </testcase>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; admin &gt; GET /users (admin) returns users without passwords" time="0.252097905">
+        </testcase>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; admin &gt; GET /requests (admin) returns every request" time="0.251676035">
         </testcase>
         <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; security (live backend only) &gt; rejects a regular user on admin endpoints with 401/403" time="0">
             <skipped/>
@@ -241,259 +241,280 @@
         <testcase classname="src/__tests__/api.contract.test.js" name="API contract: built-in mock API &gt; security (live backend only) &gt; rejects requests without a token with 401" time="0">
             <skipped/>
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; auth &gt; POST /auth/login returns token and a user without password" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; auth &gt; POST /auth/login returns token and a user without password" time="0.221217458">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; auth &gt; POST /auth/login with a wrong password is a 4xx error with a message" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; auth &gt; POST /auth/login with a wrong password is a 4xx error with a message" time="0.263825797">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; auth &gt; admin login reports role &quot;admin&quot;" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; auth &gt; admin login reports role &quot;admin&quot;" time="0.252776861">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; catalog &gt; GET /categories returns [{id, name}]" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; catalog &gt; GET /categories returns [{id, name}]" time="0.015228415">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; catalog &gt; GET /books returns a paginated envelope" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; catalog &gt; GET /books returns a paginated envelope" time="0.033503604">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; catalog &gt; GET /books?search= narrows the results" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; catalog &gt; GET /books?search= narrows the results" time="0.026429345">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; catalog &gt; GET /books/:id returns the book" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; catalog &gt; GET /books/:id returns the book" time="0.019333617">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; catalog &gt; GET /books/:id for a missing book is a 4xx error" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; catalog &gt; GET /books/:id for a missing book is a 4xx error" time="0.008677892">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; catalog &gt; GET /books/recent and /books/popular respect the limit" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; catalog &gt; GET /books/recent and /books/popular respect the limit" time="0.016955782">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; user data &gt; GET /favorites and /downloads return arrays" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; user data &gt; GET /favorites and /downloads return arrays" time="0.022515091">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; user data &gt; POST /books/:id/favorite toggles and reports is_favorite" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; user data &gt; POST /books/:id/favorite toggles and reports is_favorite" time="0.099438124">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; user data &gt; POST /requests creates a pending request visible in GET /requests/me" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; user data &gt; POST /requests creates a pending request visible in GET /requests/me" time="0.018823924">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; user data &gt; POST /requests without required fields is a 4xx error" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; user data &gt; POST /requests without required fields is a 4xx error" time="0.009021221">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; admin &gt; GET /users (admin) returns users without passwords" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; admin &gt; GET /users (admin) returns users without passwords" time="0.008970673">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; admin &gt; GET /requests (admin) returns every request" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; admin &gt; GET /requests (admin) returns every request" time="0.007953327">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; security (live backend only) &gt; rejects a regular user on admin endpoints with 401/403" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; security (live backend only) &gt; rejects a regular user on admin endpoints with 401/403" time="0.013727041">
         </testcase>
-        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (API_TEST_URL not set) &gt; security (live backend only) &gt; rejects requests without a token with 401" time="0">
-            <skipped/>
+        <testcase classname="src/__tests__/api.contract.test.js" name="API contract: LIVE backend (http://127.0.0.1:8000) &gt; security (live backend only) &gt; rejects requests without a token with 401" time="0.006135797">
         </testcase>
     </testsuite>
-    <testsuite name="src/__tests__/apiClient.test.js" timestamp="2026-10-31T14:02:45.863Z" hostname="vm" tests="20" failures="0" errors="0" skipped="0" time="7.777821581">
-        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; login resolves with token and user" time="0.336258054">
+    <testsuite name="src/__tests__/apiClient.test.js" timestamp="2026-10-31T14:26:49.236Z" hostname="vm" tests="20" failures="0" errors="0" skipped="0" time="7.786174108">
+        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; login resolves with token and user" time="0.310476366">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; login failure rejects with HTTP-style error (status 400 + message)" time="0.269150063">
+        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; login failure rejects with HTTP-style error (status 400 + message)" time="0.277402214">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; register returns 201 semantics and a usable session" time="0.51315358">
+        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; register returns 201 semantics and a usable session" time="0.532456983">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; forwards query params to the books endpoint" time="0.265721442">
+        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; forwards query params to the books endpoint" time="0.257783617">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; getBookById resolves a book and rejects an unknown one" time="0.510140436">
+        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; getBookById resolves a book and rejects an unknown one" time="0.512616408">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; recent and popular endpoints honour the limit parameter" time="0.513043967">
+        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; recent and popular endpoints honour the limit parameter" time="0.51926046">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; toggleFavorite is reflected by the favorites endpoint" time="0.760724434">
+        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; toggleFavorite is reflected by the favorites endpoint" time="0.760605002">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; download returns a blob and appears in download history" time="0.509571765">
+        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; download returns a blob and appears in download history" time="0.514498252">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; admin can create then delete a book and category" time="1.518128868">
+        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; admin can create then delete a book and category" time="1.517042397">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; book request flow: create as logged-in user, then approve as admin" time="1.014202325">
+        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; book request flow: create as logged-in user, then approve as admin" time="1.016675267">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; admin user management: list and delete" time="0.762461328">
+        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; admin user management: list and delete" time="0.761051343">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; unknown endpoints come back as 404" time="0.258684347">
+        <testcase classname="src/__tests__/apiClient.test.js" name="API layer through the axios mock adapter (integration) &gt; unknown endpoints come back as 404" time="0.259562639">
             <system-err>
 [Mock API] Endpoint not found: GET /does-not-exist
 
             </system-err>
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="request interceptor: Authorization header &gt; attaches the bearer token when one is stored" time="0.256712763">
+        <testcase classname="src/__tests__/apiClient.test.js" name="request interceptor: Authorization header &gt; attaches the bearer token when one is stored" time="0.257379556">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="request interceptor: Authorization header &gt; sends no Authorization header when logged out" time="0.257174097">
+        <testcase classname="src/__tests__/apiClient.test.js" name="request interceptor: Authorization header &gt; sends no Authorization header when logged out" time="0.258022432">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="response interceptor: 401 handling &gt; clears the session and redirects to /login from a protected page" time="0.011040321">
+        <testcase classname="src/__tests__/apiClient.test.js" name="response interceptor: 401 handling &gt; clears the session and redirects to /login from a protected page" time="0.009902789">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="response interceptor: 401 handling &gt; does not redirect when already on the login page, but still clears the session" time="0.008916974">
+        <testcase classname="src/__tests__/apiClient.test.js" name="response interceptor: 401 handling &gt; does not redirect when already on the login page, but still clears the session" time="0.006252243">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="environment-driven API configuration &gt; defaults to mock mode and the /api base URL" time="0.001028976">
+        <testcase classname="src/__tests__/apiClient.test.js" name="environment-driven API configuration &gt; defaults to mock mode and the /api base URL" time="0.001330448">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="environment-driven API configuration &gt; VITE_USE_MOCKS=false switches to the real backend" time="0.001142602">
+        <testcase classname="src/__tests__/apiClient.test.js" name="environment-driven API configuration &gt; VITE_USE_MOCKS=false switches to the real backend" time="0.001352272">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="environment-driven API configuration &gt; VITE_API_BASE_URL overrides the base URL" time="0.001095522">
+        <testcase classname="src/__tests__/apiClient.test.js" name="environment-driven API configuration &gt; VITE_API_BASE_URL overrides the base URL" time="0.001057867">
         </testcase>
-        <testcase classname="src/__tests__/apiClient.test.js" name="environment-driven API configuration &gt; the axios client uses the mock adapter only when mocks are on" time="0.007169915">
-        </testcase>
-    </testsuite>
-    <testsuite name="src/__tests__/downloadFile.test.js" timestamp="2026-10-31T14:02:45.866Z" hostname="vm" tests="4" failures="0" errors="0" skipped="0" time="0.018231128">
-        <testcase classname="src/__tests__/downloadFile.test.js" name="triggerFileDownload &gt; downloads a Blob under the given filename" time="0.00762656">
-        </testcase>
-        <testcase classname="src/__tests__/downloadFile.test.js" name="triggerFileDownload &gt; defaults the filename to document.pdf" time="0.000927434">
-        </testcase>
-        <testcase classname="src/__tests__/downloadFile.test.js" name="triggerFileDownload &gt; wraps non-Blob data in a PDF Blob" time="0.000812629">
-        </testcase>
-        <testcase classname="src/__tests__/downloadFile.test.js" name="triggerFileDownload &gt; cleans up: removes the link from the DOM and revokes the object URL" time="0.007546431">
+        <testcase classname="src/__tests__/apiClient.test.js" name="environment-driven API configuration &gt; the axios client uses the mock adapter when mocks are on and the live adapter when off" time="0.008710896">
         </testcase>
     </testsuite>
-    <testsuite name="src/__tests__/mockHandlers.test.js" timestamp="2026-10-31T14:02:45.866Z" hostname="vm" tests="57" failures="0" errors="0" skipped="0" time="0.160983745">
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: login &gt; returns a token and the user (without password) for valid credentials" time="0.03058543">
+    <testsuite name="src/__tests__/downloadFile.test.js" timestamp="2026-10-31T14:26:49.237Z" hostname="vm" tests="4" failures="0" errors="0" skipped="0" time="0.019206022">
+        <testcase classname="src/__tests__/downloadFile.test.js" name="triggerFileDownload &gt; downloads a Blob under the given filename" time="0.009607123">
         </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: login &gt; returns the admin role for the admin account" time="0.003014478">
+        <testcase classname="src/__tests__/downloadFile.test.js" name="triggerFileDownload &gt; defaults the filename to document.pdf" time="0.000852207">
         </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: login &gt; matches the email case-insensitively" time="0.001498425">
+        <testcase classname="src/__tests__/downloadFile.test.js" name="triggerFileDownload &gt; wraps non-Blob data in a PDF Blob" time="0.000851158">
         </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: login &gt; rejects a wrong password" time="0.002639357">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: login &gt; rejects an unknown email" time="0.002584402">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: register &gt; creates a regular user, returns a token and never exposes the password" time="0.002253855">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: register &gt; allows the new user to log in afterwards" time="0.00159622">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: register &gt; rejects a duplicate email regardless of case" time="0.008306695">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: register &gt; persists new users to localStorage" time="0.002217381">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; lists the six seeded categories" time="0.002208668">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; creates a category and trims the name" time="0.001573864">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; rejects an empty name (&quot;&quot;)" time="0.003397542">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; rejects an empty name (&quot;   &quot;)" time="0.001316858">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; rejects an empty name (undefined)" time="0.001283701">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; rejects a duplicate name regardless of case" time="0.001684345">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; deletes an existing category" time="0.002688663">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; rejects deleting a category that does not exist" time="0.001380528">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; keeps data after a reload (persistence)" time="0.002878236">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; returns the first page of 6 by default with correct paging metadata" time="0.002746135">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; returns the remaining books on page 2" time="0.001368462">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; searches by title" time="0.001480607">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; searches by author, case-insensitively" time="0.001320206">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; returns an empty result (and 1 total page) when nothing matches" time="0.001291301">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; filters by category" time="0.001412949">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; treats category &quot;all&quot; as no filter" time="0.00125949">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; sorts newest first by default" time="0.003388554">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; sorts oldest first" time="0.001724799">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; sorts by most downloaded" time="0.001714247">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; sorts titles A-Z and Z-A" time="0.011211543">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; falls back to defaults for invalid page/limit values" time="0.001820583">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; returns a book by id (string ids are accepted)" time="0.001608694">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; rejects an unknown book id" time="0.001873055">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; creates a book with sensible defaults and lists it first" time="0.001988429">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; rejects a book missing a required field ({&quot;author&quot;:&quot;A&quot;,&quot;category&quot;:&quot;C&quot;})" time="0.001600387">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; rejects a book missing a required field ({&quot;title&quot;:&quot;T&quot;,&quot;category&quot;:&quot;C&quot;})" time="0.001730478">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; rejects a book missing a required field ({&quot;title&quot;:&quot;T&quot;,&quot;author&quot;:&quot;A&quot;})" time="0.001688384">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; deletes a book" time="0.002019227">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; rejects deleting an unknown book" time="0.001679474">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="favorites &gt; starts with the two seeded favorites" time="0.002297079">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="favorites &gt; toggles a book on and off" time="0.001664651">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="favorites &gt; rejects toggling an unknown book" time="0.001339188">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="downloads &gt; returns a PDF blob, bumps the counter and records the download" time="0.003790078">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="downloads &gt; rejects downloading an unknown book and records nothing" time="0.005052075">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="home page rows &gt; returns the most recent books, newest first" time="0.001834687">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="home page rows &gt; returns the most downloaded books, highest first" time="0.00171857">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; creates a pending request owned by the current user, trimming input" time="0.001691959">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; rejects a request missing a required field ({&quot;author&quot;:&quot;A&quot;,&quot;category&quot;:&quot;C&quot;})" time="0.00169024">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; rejects a request missing a required field ({&quot;bookName&quot;:&quot;B&quot;,&quot;category&quot;:&quot;C&quot;})" time="0.001646443">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; rejects a request missing a required field ({&quot;bookName&quot;:&quot;B&quot;,&quot;author&quot;:&quot;A&quot;})" time="0.001712991">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; only returns the current user&apos;s own requests" time="0.002569733">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; returns every request for admins" time="0.001632672">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; updates a request status" time="0.001537347">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; rejects an invalid status" time="0.001749179">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; rejects an unknown request id" time="0.001700482">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="users (admin) &gt; lists users without passwords" time="0.001738534">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="users (admin) &gt; deletes a user" time="0.00189538">
-        </testcase>
-        <testcase classname="src/__tests__/mockHandlers.test.js" name="users (admin) &gt; rejects deleting an unknown user" time="0.001756281">
+        <testcase classname="src/__tests__/downloadFile.test.js" name="triggerFileDownload &gt; cleans up: removes the link from the DOM and revokes the object URL" time="0.006583822">
         </testcase>
     </testsuite>
-    <testsuite name="src/__tests__/routeGuards.test.jsx" timestamp="2026-10-31T14:02:45.870Z" hostname="vm" tests="6" failures="0" errors="0" skipped="0" time="0.050439162">
-        <testcase classname="src/__tests__/routeGuards.test.jsx" name="ProtectedRoute &gt; redirects anonymous visitors to /login and remembers where they came from" time="0.036285867">
+    <testsuite name="src/__tests__/liveAdapter.test.js" timestamp="2026-10-31T14:26:49.238Z" hostname="vm" tests="18" failures="0" errors="0" skipped="0" time="0.017224749">
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="mappers &gt; maps the student role to the UI role &quot;user&quot;" time="0.001196145">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="mappers &gt; marks naive backend timestamps as UTC and leaves zoned ones alone" time="0.000329513">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="mappers &gt; maps a user" time="0.000702833">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="mappers &gt; maps a book to the UI shape without inventing file details" time="0.000717847">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="mappers &gt; flattens a download record" time="0.000200325">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="mappers &gt; maps a request" time="0.000203913">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="mappers &gt; turns FastAPI &quot;detail&quot; into the &quot;message&quot; the UI reads" time="0.000286556">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="liveAdapter requests &gt; login: calls /auth/login then /auth/me and returns {token, user}" time="0.001427854">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="liveAdapter requests &gt; register: creates the account then logs in (201)" time="0.000538409">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="liveAdapter requests &gt; login failure surfaces the backend message" time="0.001071314">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="liveAdapter requests &gt; GET /books: maps category name to id, paging to offset, sort to backend sort" time="0.000840282">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="liveAdapter requests &gt; GET /books with an unknown category returns an empty page without querying books" time="0.000543154">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="liveAdapter requests &gt; oldest/title_desc sorts are done in the adapter over all backend pages" time="0.006442477">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="liveAdapter requests &gt; favorite toggle: adds when not favorite, removes when favorite, reports the new state" time="0.000306586">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="liveAdapter requests &gt; POST /requests sends backend field names and maps the response" time="0.000339477">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="liveAdapter requests &gt; admin routes are translated: /requests, /requests/:id/status, /users" time="0.000398008">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="liveAdapter requests &gt; forwards the Authorization header to the backend" time="0.000166492">
+        </testcase>
+        <testcase classname="src/__tests__/liveAdapter.test.js" name="liveAdapter requests &gt; an unmapped route fails loudly with 404 instead of guessing" time="0.000260421">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/__tests__/mockHandlers.test.js" timestamp="2026-10-31T14:26:49.239Z" hostname="vm" tests="57" failures="0" errors="0" skipped="0" time="0.138067255">
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: login &gt; returns a token and the user (without password) for valid credentials" time="0.029345807">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: login &gt; returns the admin role for the admin account" time="0.001675718">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: login &gt; matches the email case-insensitively" time="0.001688937">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: login &gt; rejects a wrong password" time="0.002931556">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: login &gt; rejects an unknown email" time="0.001537683">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: register &gt; creates a regular user, returns a token and never exposes the password" time="0.003332334">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: register &gt; allows the new user to log in afterwards" time="0.001602528">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: register &gt; rejects a duplicate email regardless of case" time="0.002389435">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="auth: register &gt; persists new users to localStorage" time="0.001531027">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; lists the six seeded categories" time="0.0022844">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; creates a category and trims the name" time="0.001548548">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; rejects an empty name (&quot;&quot;)" time="0.001714685">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; rejects an empty name (&quot;   &quot;)" time="0.001769939">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; rejects an empty name (undefined)" time="0.001250152">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; rejects a duplicate name regardless of case" time="0.001502991">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; deletes an existing category" time="0.00149366">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; rejects deleting a category that does not exist" time="0.001458104">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="categories &gt; keeps data after a reload (persistence)" time="0.002770899">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; returns the first page of 6 by default with correct paging metadata" time="0.002356116">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; returns the remaining books on page 2" time="0.001699295">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; searches by title" time="0.00143341">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; searches by author, case-insensitively" time="0.001305512">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; returns an empty result (and 1 total page) when nothing matches" time="0.0014016">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; filters by category" time="0.001350347">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; treats category &quot;all&quot; as no filter" time="0.001438478">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; sorts newest first by default" time="0.001296621">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; sorts oldest first" time="0.001625225">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; sorts by most downloaded" time="0.001319558">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; sorts titles A-Z and Z-A" time="0.00740573">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: listing, search, filter, sort, pagination &gt; falls back to defaults for invalid page/limit values" time="0.001501636">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; returns a book by id (string ids are accepted)" time="0.00131558">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; rejects an unknown book id" time="0.004862394">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; creates a book with sensible defaults and lists it first" time="0.001969546">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; rejects a book missing a required field ({&quot;author&quot;:&quot;A&quot;,&quot;category&quot;:&quot;C&quot;})" time="0.001675242">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; rejects a book missing a required field ({&quot;title&quot;:&quot;T&quot;,&quot;category&quot;:&quot;C&quot;})" time="0.001239782">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; rejects a book missing a required field ({&quot;title&quot;:&quot;T&quot;,&quot;author&quot;:&quot;A&quot;})" time="0.001458177">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; deletes a book" time="0.001692641">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="books: details, create, delete &gt; rejects deleting an unknown book" time="0.001250644">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="favorites &gt; starts with the two seeded favorites" time="0.001200007">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="favorites &gt; toggles a book on and off" time="0.00148507">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="favorites &gt; rejects toggling an unknown book" time="0.001529701">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="downloads &gt; returns a PDF blob, bumps the counter and records the download" time="0.003403344">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="downloads &gt; rejects downloading an unknown book and records nothing" time="0.001812271">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="home page rows &gt; returns the most recent books, newest first" time="0.001737913">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="home page rows &gt; returns the most downloaded books, highest first" time="0.001637996">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; creates a pending request owned by the current user, trimming input" time="0.001777723">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; rejects a request missing a required field ({&quot;author&quot;:&quot;A&quot;,&quot;category&quot;:&quot;C&quot;})" time="0.001658457">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; rejects a request missing a required field ({&quot;bookName&quot;:&quot;B&quot;,&quot;category&quot;:&quot;C&quot;})" time="0.001660064">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; rejects a request missing a required field ({&quot;bookName&quot;:&quot;B&quot;,&quot;author&quot;:&quot;A&quot;})" time="0.001471684">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; only returns the current user&apos;s own requests" time="0.001940814">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; returns every request for admins" time="0.001939826">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; updates a request status" time="0.001774219">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; rejects an invalid status" time="0.001797541">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="book requests &gt; rejects an unknown request id" time="0.001789795">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="users (admin) &gt; lists users without passwords" time="0.00202601">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="users (admin) &gt; deletes a user" time="0.001845969">
+        </testcase>
+        <testcase classname="src/__tests__/mockHandlers.test.js" name="users (admin) &gt; rejects deleting an unknown user" time="0.001356301">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/__tests__/routeGuards.test.jsx" timestamp="2026-10-31T14:26:49.244Z" hostname="vm" tests="6" failures="0" errors="0" skipped="0" time="0.065616241">
+        <testcase classname="src/__tests__/routeGuards.test.jsx" name="ProtectedRoute &gt; redirects anonymous visitors to /login and remembers where they came from" time="0.044395883">
             <system-err>
 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
 
             </system-err>
         </testcase>
-        <testcase classname="src/__tests__/routeGuards.test.jsx" name="ProtectedRoute &gt; shows the page to a logged-in user" time="0.002753971">
+        <testcase classname="src/__tests__/routeGuards.test.jsx" name="ProtectedRoute &gt; shows the page to a logged-in user" time="0.004172113">
         </testcase>
-        <testcase classname="src/__tests__/routeGuards.test.jsx" name="ProtectedRoute &gt; shows the page to an admin too" time="0.002037912">
+        <testcase classname="src/__tests__/routeGuards.test.jsx" name="ProtectedRoute &gt; shows the page to an admin too" time="0.003123946">
         </testcase>
-        <testcase classname="src/__tests__/routeGuards.test.jsx" name="AdminRoute &gt; redirects anonymous visitors to /login" time="0.00295356">
+        <testcase classname="src/__tests__/routeGuards.test.jsx" name="AdminRoute &gt; redirects anonymous visitors to /login" time="0.004914913">
         </testcase>
-        <testcase classname="src/__tests__/routeGuards.test.jsx" name="AdminRoute &gt; keeps regular users out and sends them to /browse" time="0.002737648">
+        <testcase classname="src/__tests__/routeGuards.test.jsx" name="AdminRoute &gt; keeps regular users out and sends them to /browse" time="0.003986841">
         </testcase>
-        <testcase classname="src/__tests__/routeGuards.test.jsx" name="AdminRoute &gt; lets admins in" time="0.002084606">
+        <testcase classname="src/__tests__/routeGuards.test.jsx" name="AdminRoute &gt; lets admins in" time="0.003356724">
         </testcase>
     </testsuite>
-    <testsuite name="src/__tests__/useDebounce.test.js" timestamp="2026-10-31T14:02:45.870Z" hostname="vm" tests="5" failures="0" errors="0" skipped="0" time="0.025612815">
-        <testcase classname="src/__tests__/useDebounce.test.js" name="useDebounce &gt; returns the initial value immediately" time="0.014093813">
+    <testsuite name="src/__tests__/useDebounce.test.js" timestamp="2026-10-31T14:26:49.245Z" hostname="vm" tests="5" failures="0" errors="0" skipped="0" time="0.032100051">
+        <testcase classname="src/__tests__/useDebounce.test.js" name="useDebounce &gt; returns the initial value immediately" time="0.018587568">
         </testcase>
-        <testcase classname="src/__tests__/useDebounce.test.js" name="useDebounce &gt; only updates after the delay has elapsed" time="0.00489045">
+        <testcase classname="src/__tests__/useDebounce.test.js" name="useDebounce &gt; only updates after the delay has elapsed" time="0.005055375">
         </testcase>
-        <testcase classname="src/__tests__/useDebounce.test.js" name="useDebounce &gt; restarts the timer on every change and keeps only the last value" time="0.002033177">
+        <testcase classname="src/__tests__/useDebounce.test.js" name="useDebounce &gt; restarts the timer on every change and keeps only the last value" time="0.002650867">
         </testcase>
-        <testcase classname="src/__tests__/useDebounce.test.js" name="useDebounce &gt; uses a 400ms default delay" time="0.001708023">
+        <testcase classname="src/__tests__/useDebounce.test.js" name="useDebounce &gt; uses a 400ms default delay" time="0.002151902">
         </testcase>
-        <testcase classname="src/__tests__/useDebounce.test.js" name="useDebounce &gt; cancels the pending timer on unmount" time="0.001519982">
+        <testcase classname="src/__tests__/useDebounce.test.js" name="useDebounce &gt; cancels the pending timer on unmount" time="0.001886635">
         </testcase>
     </testsuite>
 </testsuites>

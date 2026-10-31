@@ -1,0 +1,55 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.18, pytest-7.4.4, pluggy-1.7.0
+rootdir: /root/Digital-Library-System
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1, cov-7.1.0
+collected 52 items
+
+tests/test_admin.py ......                                               [ 11%]
+tests/test_auth.py .........                                             [ 28%]
+tests/test_books.py .................                                    [ 61%]
+tests/test_categories.py ........                                        [ 76%]
+tests/test_favorites.py ....                                             [ 84%]
+tests/test_health.py .                                                   [ 86%]
+tests/test_requests.py .......                                           [100%]
+
+=============================== warnings summary ===============================
+../../tmp/claude-0/-home-claude/9cfbc941-c5fe-576d-bb90-9c64c515fbc1/scratchpad/venv/lib/python3.11/site-packages/fastapi/testclient.py:1
+  /tmp/claude-0/-home-claude/9cfbc941-c5fe-576d-bb90-9c64c515fbc1/scratchpad/venv/lib/python3.11/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+../../tmp/claude-0/-home-claude/9cfbc941-c5fe-576d-bb90-9c64c515fbc1/scratchpad/venv/lib/python3.11/site-packages/passlib/utils/__init__.py:854
+  /tmp/claude-0/-home-claude/9cfbc941-c5fe-576d-bb90-9c64c515fbc1/scratchpad/venv/lib/python3.11/site-packages/passlib/utils/__init__.py:854: DeprecationWarning: 'crypt' is deprecated and slated for removal in Python 3.13
+    from crypt import crypt as _crypt
+
+tests/test_requests.py::test_validation_error_format
+  /tmp/claude-0/-home-claude/9cfbc941-c5fe-576d-bb90-9c64c515fbc1/scratchpad/venv/lib/python3.11/site-packages/starlette/_exception_handler.py:59: StarletteDeprecationWarning: 'HTTP_422_UNPROCESSABLE_ENTITY' is deprecated. Use 'HTTP_422_UNPROCESSABLE_CONTENT' instead.
+    response = await handler(conn, exc)  # type: ignore[arg-type]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /root/Digital-Library-System/submission-evidence/automated-tests/backend/junit.xml -
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.11.18-final-0 _______________
+
+Name                        Stmts   Miss  Cover
+-----------------------------------------------
+app/__init__.py                 0      0   100%
+app/auth.py                    61     14    77%
+app/config.py                  21      0   100%
+app/database.py                45     21    53%
+app/main.py                    34      1    97%
+app/models.py                  61      0   100%
+app/routers/__init__.py         0      0   100%
+app/routers/admin.py           36      1    97%
+app/routers/auth.py            29      0   100%
+app/routers/books.py          103      5    95%
+app/routers/categories.py      30      0   100%
+app/routers/favorites.py       26      0   100%
+app/routers/me.py              23      0   100%
+app/routers/requests.py        18      0   100%
+app/schemas.py                 79      0   100%
+-----------------------------------------------
+TOTAL                         566     42    93%
+Coverage XML written to file submission-evidence/automated-tests/backend/coverage.xml
+======================= 52 passed, 3 warnings in 15.02s ========================

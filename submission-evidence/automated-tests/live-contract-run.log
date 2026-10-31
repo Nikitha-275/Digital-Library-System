@@ -1,0 +1,18 @@
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > auth > POST /auth/login returns token and a user without password
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > auth > POST /auth/login with a wrong password is a 4xx error with a message
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > auth > admin login reports role "admin"
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > catalog > GET /categories returns [{id, name}]
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > catalog > GET /books returns a paginated envelope
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > catalog > GET /books?search= narrows the results
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > catalog > GET /books/:id returns the book
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > catalog > GET /books/:id for a missing book is a 4xx error
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > catalog > GET /books/recent and /books/popular respect the limit
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > user data > GET /favorites and /downloads return arrays
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > user data > POST /books/:id/favorite toggles and reports is_favorite
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > user data > POST /requests creates a pending request visible in GET /requests/me
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > user data > POST /requests without required fields is a 4xx error
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > admin > GET /users (admin) returns users without passwords
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > admin > GET /requests (admin) returns every request
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > security (live backend only) > rejects a regular user on admin endpoints with 401/403
+ ✓ src/__tests__/api.contract.test.js > API contract: LIVE backend (http://127.0.0.1:8000) > security (live backend only) > rejects requests without a token with 401
+      Tests  32 passed | 2 skipped (34)

@@ -11,7 +11,7 @@ Prepared and committed:
 - `.github/workflows/deploy-frontend.yml` - manual deploy (preview or production) that runs the tests first.
 - Build verified on Node 20 (`../build-verification/build-node20.log`).
 
-What a deployment would currently show: the app running on the **built-in mock API**. It must be described as a *frontend preview*, not the complete application.
+Without environment variables, a deployment shows the app on the **built-in mock API** (a frontend preview). To use the real backend, set `VITE_USE_MOCKS=false` and `VITE_API_BASE_URL=https://<backend-url>` in Vercel (after the backend is deployed).
 
 ### Option A - fastest (no GitHub secrets needed)
 
@@ -30,10 +30,12 @@ What a deployment would currently show: the app running on the **built-in mock A
 
 Production deployments should wait until the backend is integrated. To require approval, create a GitHub environment named `production` with required reviewers (the workflow already uses `environment: <target>`).
 
-## Backend - BLOCKED (no backend code)
+## Backend - READY TO DEPLOY, NOT DEPLOYED (needs a hosting account)
 
-Nothing can be deployed until the backend developer pushes code. Requirements already known from the frontend: the API must live under `/api` and answer on port 8000 locally. Hosting (for example Render or Railway) and the database are chosen once the stack is known. See `../documentation/integration-checklist.md`.
+Verified locally: install in a clean venv, 52 tests pass, server starts and serves the frontend. Start command `uvicorn app.main:app --host 0.0.0.0 --port 8000`, health check `/health`.
+Environment variables: `DATABASE_URL` (e.g. `mysql+pymysql://user:pass@host:3306/db`, or `sqlite:///./library.db` for a demo), `JWT_SECRET` (set a strong value), `UPLOAD_DIR`. Run `python seed.py` once for demo data.
+Caveat: free hosts have ephemeral disks, so SQLite data and uploaded PDFs are lost on restart; use a hosted MySQL for anything lasting. CORS is `*` in the backend today.
 
 ## Full application - PENDING
 
-Requires the backend, then `VITE_USE_MOCKS=false` and `VITE_API_BASE_URL` (or a Vercel rewrite) set for the frontend build, followed by verification of the real flows. Not complete until verified.
+Verified locally only (see `../documentation/integration-checklist.md`). Not complete until the deployed frontend is checked against the deployed backend.

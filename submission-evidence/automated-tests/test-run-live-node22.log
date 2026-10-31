@@ -1,0 +1,148 @@
+
+> elibrary-frontend@1.0.0 test:ci
+> vitest run --coverage
+
+
+ RUN  v2.1.9 /root/Digital-Library-System/frontend-dev
+      Coverage enabled with v8
+
+ ✓ src/__tests__/mockHandlers.test.js (57 tests) 138ms
+ ✓ src/__tests__/api.contract.test.js (34 tests | 2 skipped) 7683ms
+   ✓ API contract: built-in mock API > catalog > GET /books?search= narrows the results 505ms
+   ✓ API contract: built-in mock API > catalog > GET /books/:id returns the book 503ms
+   ✓ API contract: built-in mock API > catalog > GET /books/recent and /books/popular respect the limit 503ms
+   ✓ API contract: built-in mock API > user data > GET /favorites and /downloads return arrays 503ms
+   ✓ API contract: built-in mock API > user data > POST /books/:id/favorite toggles and reports is_favorite 754ms
+   ✓ API contract: built-in mock API > user data > POST /requests creates a pending request visible in GET /requests/me 504ms
+stderr | src/__tests__/App.integration.test.jsx > Browse (public catalog) > anonymous visitors land on Browse and see every book
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ src/__tests__/App.integration.test.jsx (21 tests) 8934ms
+   ✓ Browse (public catalog) > anonymous visitors land on Browse and see every book 391ms
+   ✓ Browse (public catalog) > search filters the list after the debounce 1098ms
+   ✓ Browse (public catalog) > shows an empty state for no matches, and Clear All Filters restores the list 1727ms
+   ✓ Browse (public catalog) > filters by category 617ms
+   ✓ Browse (public catalog) > sorts titles A-Z 611ms
+   ✓ User journeys > logs in through the UI with the demo user and sees the personalised home page 328ms
+   ✓ User journeys > a wrong password is rejected with the API error message 476ms
+   ✓ User journeys > book details: add to favorites, then download a PDF 856ms
+   ✓ Admin journeys > admin logs in through the UI and lands on the dashboard 359ms
+   ✓ Admin journeys > admin approves a pending book request in the inbox 864ms
+   ✓ Admin journeys > admin adds a category and it appears in the list 680ms
+ ✓ src/__tests__/liveAdapter.test.js (18 tests) 17ms
+stderr | src/__tests__/apiClient.test.js > API layer through the axios mock adapter (integration) > unknown endpoints come back as 404
+[Mock API] Endpoint not found: GET /does-not-exist
+
+ ✓ src/__tests__/apiClient.test.js (20 tests) 7786ms
+   ✓ API layer through the axios mock adapter (integration) > login resolves with token and user 310ms
+   ✓ API layer through the axios mock adapter (integration) > register returns 201 semantics and a usable session 532ms
+   ✓ API layer through the axios mock adapter (integration) > getBookById resolves a book and rejects an unknown one 513ms
+   ✓ API layer through the axios mock adapter (integration) > recent and popular endpoints honour the limit parameter 519ms
+   ✓ API layer through the axios mock adapter (integration) > toggleFavorite is reflected by the favorites endpoint 761ms
+   ✓ API layer through the axios mock adapter (integration) > download returns a blob and appears in download history 514ms
+   ✓ API layer through the axios mock adapter (integration) > admin can create then delete a book and category 1517ms
+   ✓ API layer through the axios mock adapter (integration) > book request flow: create as logged-in user, then approve as admin 1017ms
+   ✓ API layer through the axios mock adapter (integration) > admin user management: list and delete 761ms
+stderr | src/__tests__/Pages.integration.test.jsx > Home page > greets the user and shows the recent and most-downloaded rows (4 books each)
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ src/__tests__/Pages.integration.test.jsx (12 tests) 5626ms
+   ✓ Home page > greets the user and shows the recent and most-downloaded rows (4 books each) 410ms
+   ✓ Downloads page > lists the download history 347ms
+   ✓ Downloads page > re-downloading triggers a file download and records a new history entry 835ms
+   ✓ Downloads page > shows an error and recovers on Retry 309ms
+   ✓ Admin dashboard: books > rejects a book whose title is only whitespace 411ms
+   ✓ Admin dashboard: books > adds a book and the catalog count goes up 1163ms
+   ✓ Admin dashboard: books > deletes a book after confirmation 606ms
+   ✓ Admin dashboard: books > does nothing when the admin cancels the delete confirmation 343ms
+   ✓ Admin dashboard: users > an admin cannot delete their own account 313ms
+   ✓ Admin dashboard: users > an admin can remove another user after confirming 855ms
+ ✓ src/__tests__/RequestBook.test.jsx (8 tests) 1305ms
+   ✓ RequestBook: submitting > submits the form values, confirms success, clears the fields and refreshes the list 363ms
+stderr | src/__tests__/Login.test.jsx > Login page > renders the form and a link to registration
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ src/__tests__/Login.test.jsx (9 tests) 1097ms
+ ✓ src/__tests__/AuthContext.test.jsx (10 tests) 56ms
+stderr | src/__tests__/Register.test.jsx > Register page > renders all four fields and a link back to sign in
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ src/__tests__/Register.test.jsx (6 tests) 1274ms
+stderr | src/__tests__/Navbar.test.jsx > Navbar: logged out > shows Browse Books, Login and Register, and no account links
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ src/__tests__/Navbar.test.jsx (6 tests) 302ms
+stderr | src/__tests__/BookCard.test.jsx > BookCard > shows title, author, category and the cover image
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ src/__tests__/BookCard.test.jsx (7 tests) 175ms
+stderr | src/__tests__/routeGuards.test.jsx > ProtectedRoute > redirects anonymous visitors to /login and remembers where they came from
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ src/__tests__/routeGuards.test.jsx (6 tests) 66ms
+ ✓ src/__tests__/useDebounce.test.js (5 tests) 32ms
+ ✓ src/__tests__/downloadFile.test.js (4 tests) 19ms
+
+ Test Files  15 passed (15)
+      Tests  221 passed | 2 skipped (223)
+   Start at  19:55:59
+   Duration  49.06s (transform 511ms, setup 1.83s, collect 1.33s, tests 34.51s, environment 6.34s, prepare 1.11s)
+
+JSON report written to /root/Digital-Library-System/frontend-dev/test-results/results.json
+JUNIT report written to /root/Digital-Library-System/frontend-dev/test-results/junit.xml
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   95.12 |    84.06 |   92.54 |   95.12 |                   
+ src               |     100 |      100 |     100 |     100 |                   
+  App.jsx          |     100 |      100 |     100 |     100 |                   
+ src/api           |   95.67 |     87.5 |     100 |   95.67 |                   
+  auth.js          |     100 |      100 |     100 |     100 |                   
+  books.js         |     100 |       90 |     100 |     100 | 46                
+  categories.js    |     100 |      100 |     100 |     100 |                   
+  client.js        |      95 |    91.66 |     100 |      95 | 19-20,22-29,43-44 
+  config.js        |     100 |      100 |     100 |     100 |                   
+  downloads.js     |     100 |      100 |     100 |     100 |                   
+  favorites.js     |     100 |      100 |     100 |     100 |                   
+  liveAdapter.js   |   88.32 |    79.88 |     100 |   88.32 | ...55-257,260-274 
+  mockData.js      |   99.28 |    93.22 |     100 |   99.28 | 244-245,252-253   
+  requests.js      |     100 |      100 |     100 |     100 |                   
+  users.js         |     100 |      100 |     100 |     100 |                   
+ src/components    |   93.02 |    92.15 |     100 |   93.02 |                   
+  AdminRoute.jsx   |   68.42 |    83.33 |     100 |   68.42 | 10-16             
+  BookCard.jsx     |     100 |      100 |     100 |     100 |                   
+  Navbar.jsx       |     100 |    93.93 |     100 |     100 | 60,94             
+  ...ctedRoute.jsx |    62.5 |       75 |     100 |    62.5 | 10-16             
+ src/context       |     100 |      100 |     100 |     100 |                   
+  AuthContext.jsx  |     100 |      100 |     100 |     100 |                   
+ src/hooks         |     100 |      100 |     100 |     100 |                   
+  useDebounce.js   |     100 |      100 |     100 |     100 |                   
+ src/pages         |   94.44 |    76.61 |   83.56 |   94.44 |                   
+  ...Dashboard.jsx |   94.11 |    77.58 |   71.42 |   94.11 | ...99-401,561-563 
+  BookDetails.jsx  |   95.47 |     61.9 |   66.66 |   95.47 | 69,72,90,152-157  
+  Browse.jsx       |   83.88 |       80 |      75 |   83.88 | 33-34,194-225     
+  Downloads.jsx    |   98.51 |    65.21 |     100 |   98.51 | 38,108            
+  Favorites.jsx    |   73.52 |    54.54 |     100 |   73.52 | 18,43-53,62-69    
+  Home.jsx         |     100 |    72.22 |     100 |     100 | 27-28,32,54       
+  Login.jsx        |     100 |    95.83 |     100 |     100 | 33                
+  NotFound.jsx     |     100 |      100 |     100 |     100 |                   
+  Register.jsx     |     100 |    88.23 |     100 |     100 | 32                
+  RequestBook.jsx  |    99.1 |    83.72 |     100 |    99.1 | 33-34             
+ src/utils         |     100 |      100 |     100 |     100 |                   
+  downloadFile.js  |     100 |      100 |     100 |     100 |                   
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 95.12% ( 3221/3386 )
+Branches     : 84.06% ( 691/822 )
+Functions    : 92.54% ( 149/161 )
+Lines        : 95.12% ( 3221/3386 )
+================================================================================

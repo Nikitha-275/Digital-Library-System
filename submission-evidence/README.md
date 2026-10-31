@@ -8,7 +8,7 @@ DevOps branch: `devops-dev` (local commits; **not pushed yet**, so GitHub still 
 | Folder | Contents |
 |---|---|
 | `commit-history/` | `git log --graph --all`, `--stat`, branches, authors, full log with hashes |
-| `automated-tests/` | real test run log (Node 20), JUnit XML, JSON report, coverage (HTML, LCOV, summary), per-test inventory, mutation check, backend-tests-pending note |
+| `automated-tests/` | real test run logs, JUnit XML, JSON report, coverage (HTML, LCOV, summary), per-test inventory, mutation check, backend-tests-pending note |
 | `github-actions/` | workflow validation log, notes on what still needs a push |
 | `build-verification/` | `npm ci` and `npm run build` logs, output file list with checksums |
 | `deployment/` | deployment status and setup steps (nothing deployed yet) |
@@ -20,19 +20,19 @@ DevOps branch: `devops-dev` (local commits; **not pushed yet**, so GitHub still 
 |---|---|---|
 | Git branch setup | COMPLETE | Work is on `devops-dev`; `main` untouched; no branches deleted |
 | DevOps commits | COMPLETE locally, push PENDING | See `commit-history/` |
-| Frontend unit tests | COMPLETE | 14 files, 186 passed, 0 failed (19 skipped = live-backend tests) |
-| Backend unit tests | BLOCKED | No backend code in the repository |
-| API tests | PARTIAL | Contract tests pass against the mock API; against a live backend PENDING |
-| Integration tests | PARTIAL | Whole-app tests against the mock API pass; frontend-to-backend PENDING |
-| Test reports and coverage | COMPLETE | 95.99% statements, 85.27% branches, 91.54% functions |
-| GitHub Actions CI | COMPLETE (written and validated locally) | Not yet run on GitHub |
-| GitHub Actions execution | PENDING | Needs `devops-dev` to be pushed |
-| Frontend build verification | COMPLETE | Node 20, clean clone |
-| Backend build verification | BLOCKED | No backend code |
-| Frontend deployment | PENDING | Prepared; needs Vercel account access |
-| Backend deployment | BLOCKED | No backend code |
-| Full application integration | BLOCKED | Needs backend |
-| Final deployment verification | BLOCKED | Needs the above |
+| Frontend unit tests | COMPLETE | 221 passed, 0 failed, 2 skipped (security tests that only apply to a live backend and are skipped on the mock) |
+| Backend unit tests | COMPLETE | 52 passed, 93% coverage (`automated-tests/backend/`) |
+| API tests | COMPLETE | Contract tests: 15 on the mock + 17 on the real backend through the adapter, all passed |
+| Integration tests | COMPLETE (SQLite) | Whole-app tests on mock; frontend<->backend contract + real-browser login/browse verified; MySQL not tested |
+| Test reports and coverage | COMPLETE | JUnit/JSON/LCOV for frontend and backend |
+| GitHub Actions CI | COMPLETE (written, validated locally) | Includes new `integration` job; not yet run on GitHub |
+| GitHub Actions execution | PENDING | Needs `devops-dev` pushed |
+| Frontend build verification | COMPLETE | Mock mode (Node 20) and live mode (Node 22) |
+| Backend build verification | COMPLETE | Clean install in fresh venv + compile + tests |
+| Frontend deployment | PENDING | Needs Vercel account |
+| Backend deployment | PENDING | Needs hosting account and database decision |
+| Full application integration | COMPLETE locally | Verified locally; not on deployed URLs |
+| Final deployment verification | PENDING | Needs both deployments |
 | Submission evidence | COMPLETE for what exists | Remote links added after push |
 
-Tested commit for all test and build evidence: see `automated-tests/tested-commit.txt`.
+Details of the integration and its limits: `documentation/integration-checklist.md`. Tested commit: `automated-tests/tested-commit.txt`.

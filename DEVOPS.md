@@ -6,8 +6,8 @@ How this project is built, tested and deployed. Everything below reflects what e
 
 | Part | Location | Status |
 |---|---|---|
-| Frontend (React 18 + Vite 5, React Router 6, axios) | `frontend-dev/` | Implemented, runs on a built-in mock API |
-| Backend | not yet in the repository | **PENDING** (backend developer has not pushed) |
+| Frontend (React 18 + Vite 5, React Router 6, axios) | `frontend-dev/` | Implemented; mock API by default, live backend via `src/api/liveAdapter.js` |
+| Backend (FastAPI, SQLAlchemy, MySQL/SQLite) | repository root: `app/`, `tests/`, `seed.py`, `requirements.txt` | Implemented; 52 tests |
 | CI/CD | `.github/workflows/` | Implemented |
 | Evidence for submission | `submission-evidence/` | Implemented |
 
@@ -60,10 +60,25 @@ Latest recorded result (see `submission-evidence/automated-tests/`): all execute
 Run the contract tests against a real backend:
 
 ```bash
-API_TEST_URL=http://localhost:8000/api npm test
+API_TEST_URL=http://localhost:8000 npm test
 ```
 
-Backend unit/API tests: **PENDING** - the CI workflow already runs `pytest` (Python), `npm test` (Node) or `mvn verify` (Java) as soon as a `backend/` folder with a recognised manifest appears.
+Backend tests (pytest, SQLite in-memory, from the repository root):
+
+```bash
+pip install -r requirements.txt pytest-cov
+python -m pytest --cov=app
+```
+
+Full-stack run (real backend + frontend contract tests through the live adapter):
+
+```bash
+DATABASE_URL=sqlite:///./local.db python seed.py
+DATABASE_URL=sqlite:///./local.db uvicorn app.main:app --port 8000 &
+cd frontend-dev && API_TEST_URL=http://127.0.0.1:8000 npm test
+```
+
+Seed accounts: `student@library.com` / `Student@123`, `admin@library.com` / `Admin@123` (demo data only).
 
 ## 6. GitHub Actions CI/CD
 
@@ -74,6 +89,7 @@ Backend unit/API tests: **PENDING** - the CI workflow already runs `pytest` (Pyt
 | `detect` | Finds frontend and backend code on the branch |
 | `frontend` | `npm ci` -> tests with coverage -> job summary -> production build -> uploads test, coverage and `dist` artifacts |
 | `backend-python` / `backend-node` / `backend-java` | Start automatically when matching backend code exists; otherwise they are skipped |
+| `integration` | Starts the real backend (SQLite, seeded) and runs the frontend contract tests through the live adapter |
 | `summary` | Prints a results table and fails the run if any job that ran failed |
 
 When no backend exists the summary says **"SKIPPED - no backend code on this branch (not a pass)"**; it never reports a missing backend as passing.
@@ -100,14 +116,14 @@ Output goes to `frontend-dev/dist/`. Verified on Node 20 from a clean clone; see
 
 ### Backend (PENDING)
 
-Port 8000 and the `/api` prefix are what the frontend dev proxy expects. Hosting (for example Render or Railway) and the database are decided once the backend stack is known. See `submission-evidence/documentation/integration-checklist.md`.
+Start command: `uvicorn app.main:app --host 0.0.0.0 --port 8000`; health check `GET /health`. Environment: `DATABASE_URL` (or `DB_*` for MySQL), `JWT_SECRET`, `UPLOAD_DIR`. Hosting is **PENDING** (needs an account - see `submission-evidence/deployment/deployment-status.md`). Frontend/backend mapping: `submission-evidence/documentation/integration-checklist.md`.
 
 ## 9. Environment variables
 
 | Variable | Where | Meaning | Default |
 |---|---|---|---|
 | `VITE_USE_MOCKS` | frontend build | `false` switches from the mock API to the real backend | `true` |
-| `VITE_API_BASE_URL` | frontend build | Base URL of the API, e.g. `https://backend.example.com/api` | `/api` |
+| `VITE_API_BASE_URL` | frontend build | Backend root URL, e.g. `https://backend.example.com` (no `/api`); default `/api` works with the Vite proxy or a Vercel rewrite | `/api` |
 | `API_TEST_URL` | test run | Backend URL for the live contract tests | unset (tests skipped) |
 | `API_TEST_EMAIL`, `API_TEST_PASSWORD`, `API_TEST_ADMIN_EMAIL`, `API_TEST_ADMIN_PASSWORD` | test run | Accounts used by the live contract tests | demo accounts |
 

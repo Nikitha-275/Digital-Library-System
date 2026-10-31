@@ -1,0 +1,13 @@
+
+> elibrary-frontend@1.0.0 build
+> vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 120 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.92 kB │ gzip:  0.54 kB
+dist/assets/index-c6iO2FGv.css   14.59 kB │ gzip:  3.55 kB
+dist/assets/index-MVe35MBr.js   291.11 kB │ gzip: 91.12 kB
+✓ built in 1.62s
