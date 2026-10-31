@@ -146,14 +146,14 @@ jobs:
           pip install pytest pytest-cov
 
       - name: Compile check
-        run: python -m compileall -q .
+        run: python -m compileall -q app tests seed.py
 
       - name: Unit, API and integration tests
         shell: bash
         run: |
           mkdir -p test-results
           set +e
-          python -m pytest -ra --junitxml=test-results/junit.xml --cov=. --cov-report=xml:test-results/coverage.xml --cov-report=term
+          python -m pytest -ra --junitxml=test-results/junit.xml --cov=app --cov-report=xml:test-results/coverage.xml --cov-report=term
           code=$?
           set -e
           if [ "$code" -eq 5 ]; then
@@ -220,11 +220,70 @@ jobs:
         run: mvn -B verify
 
   # ---------------------------------------------------------------------------
+  # Full-stack integration: real backend (SQLite) + frontend contract tests
+  # run through the live adapter. Runs only when a Python backend exists.
+  # ---------------------------------------------------------------------------
+  integration:
+    name: Integration (frontend <-> backend)
+    needs: detect
+    if: needs.detect.outputs.backend_type == 'python' && needs.detect.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: sqlite:///./ci-integration.db
+      JWT_SECRET: ci-only-secret-not-for-production
+      UPLOAD_DIR: ./ci-uploads
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend-dev/package-lock.json
+
+      - name: Install backend
+        working-directory: ${{ needs.detect.outputs.backend_dir }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Seed database and start backend
+        working-directory: ${{ needs.detect.outputs.backend_dir }}
+        run: |
+          python seed.py
+          nohup python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 > backend.log 2>&1 &
+          for i in $(seq 1 30); do
+            curl -fs http://127.0.0.1:8000/health && break
+            sleep 1
+          done
+          curl -fs http://127.0.0.1:8000/health || { cat backend.log; exit 1; }
+
+      - name: Install frontend
+        working-directory: frontend-dev
+        run: npm ci
+
+      - name: Contract tests against the live backend
+        working-directory: frontend-dev
+        env:
+          API_TEST_URL: http://127.0.0.1:8000
+        run: npx vitest run src/__tests__/api.contract.test.js src/__tests__/liveAdapter.test.js
+
+      - name: Backend log
+        if: always()
+        working-directory: ${{ needs.detect.outputs.backend_dir }}
+        run: cat backend.log || true
+
+  # ---------------------------------------------------------------------------
   # Final gate: clear status table, fails if any job that ran failed.
   # ---------------------------------------------------------------------------
   summary:
     name: CI summary
-    needs: [detect, frontend, backend-python, backend-node, backend-java]
+    needs: [detect, frontend, backend-python, backend-node, backend-java, integration]
     if: always()
     runs-on: ubuntu-latest
     steps:
@@ -236,6 +295,7 @@ jobs:
           BACKEND_PY: ${{ needs.backend-python.result }}
           BACKEND_NODE: ${{ needs.backend-node.result }}
           BACKEND_JAVA: ${{ needs.backend-java.result }}
+          INTEGRATION: ${{ needs.integration.result }}
           BACKEND_TYPE: ${{ needs.detect.outputs.backend_type }}
         run: |
           {
@@ -250,11 +310,12 @@ jobs:
               echo "| Backend python | $BACKEND_PY |"
               echo "| Backend node | $BACKEND_NODE |"
               echo "| Backend java | $BACKEND_JAVA |"
+              echo "| Integration (frontend <-> backend) | $INTEGRATION |"
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
           fail=0
-          for r in "$DETECT" "$FRONTEND" "$BACKEND_PY" "$BACKEND_NODE" "$BACKEND_JAVA"; do
+          for r in "$DETECT" "$FRONTEND" "$BACKEND_PY" "$BACKEND_NODE" "$BACKEND_JAVA" "$INTEGRATION"; do
             if [ "$r" = "failure" ] || [ "$r" = "cancelled" ]; then fail=1; fi
           done
           if [ "$fail" -eq 1 ]; then
